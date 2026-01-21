@@ -19,7 +19,7 @@ export default function PortfolioPage() {
   const [showUI, setShowUI] = useState(false);
 
   return (
-    <main className="relative min-h-screen bg-[#0d0d0d] text-[#faf6f1] overflow-x-hidden">
+    <main className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Noise overlay for texture */}
       <div className="noise-overlay" />
 
@@ -37,28 +37,28 @@ export default function PortfolioPage() {
           subtitle="Where curiosity met code"
           content={
             <div className="max-w-3xl">
-              <p className="text-xl md:text-2xl text-[#faf6f1] leading-relaxed mb-8 font-serif">
+              <p className="text-xl md:text-2xl text-foreground leading-relaxed mb-8 tracking-wide">
                 Based in Calgary, I discovered my passion for building at the intersection
-                of <span className="text-[#e07a3c] font-medium">artificial intelligence</span> and{" "}
-                <span className="text-[#e07a3c] font-medium">web development</span>. What started
+                of <span className="text-primary font-medium">artificial intelligence</span> and{" "}
+                <span className="text-primary font-medium">web development</span>. What started
                 as tinkering with code evolved into a mission.
               </p>
-              <p className="text-xl md:text-2xl text-[#d4d4d4] leading-relaxed font-serif">
-                Today, through <span className="text-[#4ade80] font-medium">RAJ AI</span>, I craft
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed tracking-wide">
+                Today, through <span className="text-[var(--terminal-green)] font-medium">RAJ AI</span>, I craft
                 intelligent systems that push boundaries — from multi-agent orchestration
                 platforms to no-code AI builders that democratize technology creation.
               </p>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 md:gap-10 mt-16 pt-10 border-t border-[#333]">
+              <div className="grid grid-cols-3 gap-6 md:gap-10 mt-16 pt-10 border-t border-border">
                 {[
                   { value: "30+", label: "Open Source Projects" },
                   { value: "6", label: "GitHub Followers" },
                   { value: "∞", label: "Lines of Coffee" }
                 ].map((stat) => (
                   <div key={stat.label} className="text-center group">
-                    <div className="text-3xl md:text-5xl font-serif text-[#e07a3c] mb-2 group-hover:scale-110 transition-transform duration-300">{stat.value}</div>
-                    <div className="font-mono text-xs md:text-sm text-[#888] group-hover:text-[#faf6f1] transition-colors duration-300 leading-tight uppercase tracking-wider">{stat.label}</div>
+                    <div className="text-3xl md:text-5xl font-serif text-primary mb-2 group-hover:scale-110 transition-transform duration-300">{stat.value}</div>
+                    <div className="font-mono text-xs md:text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300 leading-tight uppercase tracking-wider">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -68,7 +68,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Chapter III - Skills Arsenal */}
-      <section id="arsenal" className="bg-[#151515]">
+      <section id="arsenal" className="bg-card">
         <StoryChapter
           chapterNumber="Chapter III"
           title="The Arsenal"
@@ -103,7 +103,7 @@ export default function PortfolioPage() {
             href="https://github.com/rajshah9305?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 border-2 border-[#e07a3c] text-[#e07a3c] font-mono text-base rounded-lg hover:bg-[#e07a3c] hover:text-[#0d0d0d] transition-all duration-300"
+            className="inline-flex items-center gap-3 px-8 py-4 border-2 border-primary text-primary font-mono text-base rounded-lg hover:bg-primary hover:text-background transition-all duration-300"
           >
             View All Repositories
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -114,7 +114,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Chapter V - Journey */}
-      <section id="journey" className="bg-[#151515]">
+      <section id="journey" className="bg-card">
         <StoryChapter
           chapterNumber="Chapter V"
           title="The Journey"
@@ -140,3 +140,4 @@ export default function PortfolioPage() {
     </main>
   );
 }
+

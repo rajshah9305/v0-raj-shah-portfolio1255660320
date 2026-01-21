@@ -105,7 +105,7 @@ export const SOCIAL_LINKS = [
 ];
 
 export const BOOT_SEQUENCE = [
-    "> INITIATING RAJ_OS v2.0...",
+    "> INITIATING RAJ_OS...",
     "> LOADING NEURAL NETWORKS...",
     "> COMPILING DREAMS INTO CODE...",
     "> ESTABLISHING CONNECTION TO THE FUTURE...",

@@ -10,9 +10,9 @@ type TimelineEvent = typeof TIMELINE_EVENTS[number];
 const events = TIMELINE_EVENTS;
 
 const typeColors = {
-  milestone: "#e07a3c",
-  project: "#e07a3c",
-  learning: "#e07a3c"
+  milestone: "var(--primary)",
+  project: "var(--primary)",
+  learning: "var(--primary)"
 };
 
 export function JourneyTimeline() {
@@ -27,9 +27,9 @@ export function JourneyTimeline() {
   return (
     <div ref={containerRef} className="relative max-w-3xl mx-auto px-4">
       {/* Central line */}
-      <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-[#333]">
+      <div className="absolute left-[1.35rem] md:left-1/2 top-0 bottom-0 w-px bg-border">
         <motion.div
-          className="w-full bg-[#e07a3c]"
+          className="w-full bg-primary"
           style={{ height: lineHeight }}
         />
       </div>
@@ -55,13 +55,13 @@ function TimelineItem({ event, index }: { event: TimelineEvent; index: number })
       initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
       animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : (isLeft ? -30 : 30) }}
       transition={{ duration: 0.5, delay: 0.2 }}
-      className={`relative flex items-center ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+      className={`relative flex flex-col md:flex-row items-start md:items-center ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} mb-12 md:mb-0`}
     >
       {/* Content */}
-      <div className={`ml-16 md:ml-0 md:w-1/2 ${isLeft ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
+      <div className={`ml-8 md:ml-0 md:w-1/2 ${isLeft ? 'md:pr-12 md:text-right' : 'md:pl-12 text-left'} w-full`}>
         {/* Year badge */}
         <span
-          className="inline-block px-3 py-1.5 mb-3 font-mono text-sm rounded-md border"
+          className="inline-block px-3 py-1.5 mb-3 font-mono text-xs md:text-sm rounded-md border"
           style={{
             backgroundColor: `${typeColors[event.type]}15`,
             color: typeColors[event.type],
@@ -71,22 +71,22 @@ function TimelineItem({ event, index }: { event: TimelineEvent; index: number })
           {event.year}
         </span>
 
-        <h3 className="text-xl md:text-2xl font-serif text-[#faf6f1] mb-2">
+        <h3 className="text-lg md:text-2xl font-serif text-foreground mb-2">
           {event.title}
         </h3>
 
-        <p className="text-[#d4d4d4] text-base md:text-lg leading-relaxed">
+        <p className="text-muted-foreground text-sm md:text-lg leading-relaxed tracking-wide">
           {event.description}
         </p>
       </div>
 
       {/* Node */}
-      <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2">
+      <div className="absolute left-0 top-0 md:left-1/2 md:top-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 mt-1.5 md:mt-0">
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: isInView ? 1 : 0 }}
           transition={{ duration: 0.3, delay: 0.4 }}
-          className="w-4 h-4 rounded-full border-2 shadow-lg"
+          className="w-3 h-3 md:w-4 md:h-4 rounded-full border-2 shadow-lg bg-background z-10 relative"
           style={{
             borderColor: typeColors[event.type],
             backgroundColor: isInView ? typeColors[event.type] : 'transparent',
@@ -97,3 +97,4 @@ function TimelineItem({ event, index }: { event: TimelineEvent; index: number })
     </motion.div>
   );
 }
+

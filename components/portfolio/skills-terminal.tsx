@@ -38,38 +38,39 @@ export function SkillsTerminal() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 40 }}
         transition={{ duration: 0.6 }}
-        className="bg-[#141414] border border-[#3a3a3a] rounded-lg overflow-hidden shadow-2xl"
+        className="bg-card border border-border rounded-lg overflow-hidden shadow-2xl"
       >
         {/* Terminal header */}
-        <div className="flex items-center justify-between px-4 py-3 bg-[#0d0d0d] border-b border-[#333]">
-          <div className="flex gap-2">
-            <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
-            <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
-            <div className="w-3 h-3 rounded-full bg-[#27ca40]" />
+        <div className="flex items-center justify-between px-3 md:px-4 py-2 md:py-3 bg-background border-b border-border">
+          <div className="flex gap-1.5 md:gap-2">
+            <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#ff5f56]" />
+            <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#ffbd2e]" />
+            <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#27ca40]" />
           </div>
-          <span className="font-mono text-xs text-[#888]">
+          <span className="font-mono text-[10px] md:text-xs text-muted-foreground">
             raj@skills ~ zsh
           </span>
-          <div className="w-16" />
+          <div className="w-12 md:w-16" />
         </div>
 
         {/* Terminal content */}
-        <div className="p-6 md:p-8 font-mono text-sm md:text-base">
+        <div className="p-4 md:p-8 font-mono text-sm md:text-base">
           {/* Command line */}
           <div className="flex items-start gap-2 mb-6 flex-wrap">
-            <span className="text-[#4ade80]">❯</span>
-            <span className="text-[#faf6f1] break-all">{typedCommand}</span>
-            <span className="cursor-blink text-[#e07a3c]">▊</span>
+            <span className="text-[var(--terminal-green)]">❯</span>
+            <span className="text-foreground break-all">{typedCommand}</span>
+            <span className="cursor-blink text-primary">▊</span>
           </div>
 
           {/* Output */}
           <motion.div
+            key={activeCategory}
             initial={{ opacity: 0 }}
             animate={{ opacity: isInView ? 1 : 0 }}
             transition={{ delay: 0.8 }}
           >
-            <div className="text-[#a0a0a0] mb-5 text-sm md:text-base">
-              Fetching skills for category: <span className="text-[#e07a3c] font-medium">{skillCategories[activeCategory]?.name}</span>
+            <div className="text-muted-foreground mb-5 text-sm md:text-base">
+              Fetching skills for category: <span className="text-primary font-medium">{skillCategories[activeCategory]?.name}</span>
             </div>
 
             <div className="grid gap-3 mb-6">
@@ -81,34 +82,34 @@ export function SkillsTerminal() {
                   transition={{ delay: 1 + i * 0.1 }}
                   className="flex items-center gap-3"
                 >
-                  <span className="text-[#4ade80]">✓</span>
-                  <span className="text-[#faf6f1]">{skill}</span>
-                  <span className="flex-1 border-b border-dotted border-[#333] min-w-[20px]" />
-                  <span className="text-[#e07a3c] text-sm">loaded</span>
+                  <span className="text-[var(--terminal-green)]">✓</span>
+                  <span className="text-foreground">{skill}</span>
+                  <span className="flex-1 border-b border-dotted border-border min-w-[20px]" />
+                  <span className="text-primary text-xs md:text-sm">loaded</span>
                 </motion.div>
               ))}
             </div>
 
-            <div className="text-[#4ade80] text-sm">
+            <div className="text-[var(--terminal-green)] text-xs md:text-sm">
               → {skillCategories[activeCategory]?.skills.length} skills loaded successfully
             </div>
           </motion.div>
         </div>
 
         {/* Category tabs */}
-        <div className="flex flex-wrap border-t border-[#333]">
+        <div className="flex overflow-x-auto md:flex-wrap border-t border-border no-scrollbar">
           {skillCategories.map((cat, i) => (
             <button
               key={cat.name}
               onClick={() => setActiveCategory(i)}
               type="button"
-              className={`flex-1 min-w-[80px] px-3 md:px-4 py-3.5 font-mono text-sm transition-all duration-300 ${activeCategory === i
-                ? 'bg-[#e07a3c] text-[#0d0d0d] font-medium'
-                : 'text-[#888] hover:bg-[#222] hover:text-[#faf6f1]'
+              className={`flex-none md:flex-1 min-w-[max-content] md:min-w-[80px] px-4 md:px-4 py-3 md:py-3.5 font-mono text-xs md:text-sm transition-all duration-300 whitespace-nowrap ${activeCategory === i
+                ? 'bg-primary text-background font-medium'
+                : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
                 }`}
             >
               <span className="mr-1.5">{cat.icon}</span>
-              <span className="hidden sm:inline">{cat.name}</span>
+              <span className="inline">{cat.name}</span>
             </button>
           ))}
         </div>
@@ -116,3 +117,4 @@ export function SkillsTerminal() {
     </div>
   );
 }
+

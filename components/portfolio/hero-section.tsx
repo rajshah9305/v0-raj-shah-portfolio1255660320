@@ -64,7 +64,7 @@ export function HeroSection({ onBootComplete }: { onBootComplete?: () => void })
     <motion.section
       ref={containerRef}
       style={{ opacity, y }}
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-background"
     >
       {/* Scanline effect */}
       <div className="scanline" />
@@ -81,15 +81,15 @@ export function HeroSection({ onBootComplete }: { onBootComplete?: () => void })
           initial={{ opacity: 1 }}
           animate={{ opacity: bootComplete ? 0 : 1 }}
           transition={{ duration: 0.5 }}
-          className={`font-mono text-left mb-0 absolute inset-0 flex items-center justify-center z-50 bg-[#0d0d0d] ${bootComplete ? 'hidden' : 'flex'}`}
+          className={`font-mono text-left mb-0 absolute inset-0 flex items-center justify-center z-50 bg-background ${bootComplete ? 'hidden' : 'flex'}`}
         >
-          <div className="bg-[#141414] border border-[#3a3a3a] rounded-lg p-6 max-w-2xl w-full mx-auto shadow-2xl">
+          <div className="bg-[#050505] border border-border rounded-lg p-4 md:p-6 max-w-[90vw] md:max-w-2xl w-full mx-auto shadow-2xl">
             <div className="flex gap-2 mb-4">
               <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
               <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
               <div className="w-3 h-3 rounded-full bg-[#27ca40]" />
             </div>
-            <pre className="text-[#4ade80] text-sm md:text-base leading-relaxed whitespace-pre-wrap min-h-[200px]">
+            <pre className="text-[var(--terminal-green)] text-xs md:text-base leading-relaxed whitespace-pre-wrap min-h-[150px] md:min-h-[200px]">
               {displayText}
               <span className={showCursor ? 'opacity-100' : 'opacity-0'}>▊</span>
             </pre>
@@ -104,7 +104,7 @@ export function HeroSection({ onBootComplete }: { onBootComplete?: () => void })
         >
           {/* Chapter indicator */}
           <motion.p
-            className="font-mono text-[#e07a3c] text-sm tracking-[0.3em] uppercase mb-8"
+            className="font-mono text-primary text-xs md:text-sm tracking-[0.3em] uppercase mb-6 md:mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: bootComplete ? 1 : 0 }}
             transition={{ delay: 0.4 }}
@@ -113,25 +113,25 @@ export function HeroSection({ onBootComplete }: { onBootComplete?: () => void })
           </motion.p>
 
           {/* Name with serif typography */}
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif tracking-tight mb-8">
-            <span className="block text-[#faf6f1]">Raj</span>
-            <span className="block text-[#e07a3c]">Shah</span>
+          <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif tracking-tight mb-6 md:mb-8">
+            <span className="block text-foreground">Raj</span>
+            <span className="block text-primary">Shah</span>
           </h1>
 
           {/* Tagline */}
-          <p className="text-xl md:text-2xl text-[#b0b0b0] font-serif italic mb-10 max-w-2xl mx-auto text-pretty leading-relaxed">
+          <p className="text-lg md:text-2xl text-muted-foreground font-serif italic mb-8 md:mb-10 max-w-2xl mx-auto text-pretty leading-relaxed px-4">
             {"\"Transforming ideas into intelligent systems, one line of code at a time.\""}
           </p>
 
           {/* Role badges */}
-          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
             {["Full-Stack Developer", "AI Enthusiast", "Open-Source Advocate"].map((role, i) => (
               <motion.span
                 key={role}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: bootComplete ? 1 : 0, scale: bootComplete ? 1 : 0.8 }}
                 transition={{ delay: 0.6 + i * 0.1 }}
-                className="px-4 py-2.5 border border-[#444] bg-[#1a1a1a]/50 rounded-full text-sm font-mono text-[#c0c0c0] hover:border-[#e07a3c] hover:text-[#e07a3c] transition-all duration-300 cursor-default"
+                className="px-3 md:px-4 py-2 md:py-2.5 border border-border bg-card/50 rounded-full text-xs md:text-sm font-mono text-muted-foreground hover:border-primary hover:text-primary transition-all duration-300 cursor-default"
               >
                 {role}
               </motion.span>
@@ -146,10 +146,10 @@ export function HeroSection({ onBootComplete }: { onBootComplete?: () => void })
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: bootComplete ? 1 : 0 }}
-        transition={{ delay: 1 }}
+        transition={{ delay: 0.8 }}
         className="animate-float absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
       >
-        <div className="flex flex-col items-center gap-3 text-[#888]">
+        <div className="flex flex-col items-center gap-3 text-muted-foreground">
           <span className="font-mono text-xs tracking-[0.2em]">SCROLL TO EXPLORE</span>
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -158,18 +158,19 @@ export function HeroSection({ onBootComplete }: { onBootComplete?: () => void })
       </motion.div>
 
       {/* Corner decorations */}
-      <div className="hidden md:block absolute top-8 left-8 text-[#e07a3c] font-mono text-xs opacity-60">
+      <div className="hidden md:block absolute top-8 left-8 text-primary font-mono text-xs">
         ┌── RAJ_OS ──
       </div>
-      <div className="hidden md:block absolute top-8 right-8 text-[#e07a3c] font-mono text-xs opacity-60">
+      <div className="hidden md:block absolute top-8 right-8 text-primary font-mono text-xs">
         ── v2026.01 ──┐
       </div>
-      <div className="hidden md:block absolute bottom-8 left-8 text-[#e07a3c] font-mono text-xs opacity-60">
+      <div className="hidden md:block absolute bottom-8 left-8 text-primary font-mono text-xs">
         └── CALGARY, CA
       </div>
-      <div className="hidden md:block absolute bottom-8 right-8 text-[#e07a3c] font-mono text-xs opacity-60">
+      <div className="hidden md:block absolute bottom-8 right-8 text-primary font-mono text-xs">
         49.2827°N ──┘
       </div>
     </motion.section>
   );
 }
+
