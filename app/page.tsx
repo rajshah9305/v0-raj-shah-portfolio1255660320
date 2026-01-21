@@ -1,15 +1,13 @@
 "use client";
 
-import { HeroSectionEnhanced } from "@/components/portfolio/hero-section-enhanced";
+import { HeroSection } from "@/components/portfolio/hero-section";
 import { StoryChapter } from "@/components/portfolio/story-chapter";
-import { ProjectCardEnhanced } from "@/components/portfolio/project-card-enhanced";
+import { ProjectCard } from "@/components/portfolio/project-card";
 import { SkillsTerminal } from "@/components/portfolio/skills-terminal";
 import { JourneyTimeline } from "@/components/portfolio/journey-timeline";
 import { ContactSection } from "@/components/portfolio/contact-section";
 import { Footer } from "@/components/portfolio/footer";
-import { NavigationEnhanced } from "@/components/portfolio/navigation-enhanced";
-import { CustomCursor } from "@/components/portfolio/custom-cursor";
-import { ScrollProgress } from "@/components/portfolio/scroll-progress";
+import { Navigation } from "@/components/portfolio/navigation";
 
 const projects = [
   {
@@ -17,17 +15,14 @@ const projects = [
     description: "An advanced AI platform exploring the journey from basic sparks of intelligence to full sentience. Built with cutting-edge neural architectures.",
     tech: ["TypeScript", "React", "AI/ML", "Next.js"],
     githubUrl: "https://github.com/rajshah9305/rajai-spark-to-sentience",
-    featured: true,
-    stats: { stars: 150, downloads: "5K+ monthly" }
+    featured: true
   },
   {
     title: "AI Agent Orchestration Platform",
     description: "Ultra-fast AI agent management platform with Cerebras integration for orchestrating multiple AI agents in complex workflows.",
     tech: ["TypeScript", "Cerebras", "CrewAI", "React"],
     githubUrl: "https://github.com/rajshah9305/AIAgentOrchestrationPlatform",
-    liveUrl: "https://www.rajai.org",
-    featured: true,
-    stats: { stars: 200, downloads: "8K+ monthly" }
+    liveUrl: "https://www.rajai.org"
   },
   {
     title: "Terminal Boot Sequence",
@@ -61,15 +56,11 @@ export default function PortfolioPage() {
       {/* Noise overlay for texture */}
       <div className="noise-overlay" />
       
-      {/* Custom cursor and scroll progress */}
-      <CustomCursor />
-      <ScrollProgress />
-      
       {/* Navigation */}
-      <NavigationEnhanced />
+      <Navigation />
       
       {/* Hero Section */}
-      <HeroSectionEnhanced />
+      <HeroSection />
       
       {/* Chapter II - Origin Story */}
       <section id="origin">
@@ -129,7 +120,7 @@ export default function PortfolioPage() {
           content={
             <div className="grid md:grid-cols-2 gap-6 mt-8">
               {projects.map((project, i) => (
-                <ProjectCardEnhanced
+                <ProjectCard
                   key={project.title}
                   {...project}
                   index={i}
