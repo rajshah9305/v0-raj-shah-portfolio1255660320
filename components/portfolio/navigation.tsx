@@ -51,7 +51,7 @@ export function Navigation() {
               <a
                 key={item.name}
                 href={item.href}
-                className="font-mono text-base text-muted-foreground hover:text-primary transition-colors relative group"
+                className="font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors relative group"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />

@@ -104,7 +104,7 @@ export function HeroSection({ onBootComplete }: { onBootComplete?: () => void })
         >
           {/* Chapter indicator */}
           <motion.p
-            className="font-mono text-primary text-xs md:text-sm tracking-[0.3em] uppercase mb-6 md:mb-8"
+            className="font-mono text-primary text-xs md:text-sm tracking-[0.2em] uppercase mb-6 md:mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: bootComplete ? 1 : 0 }}
             transition={{ delay: 0.4 }}
@@ -113,13 +113,13 @@ export function HeroSection({ onBootComplete }: { onBootComplete?: () => void })
           </motion.p>
 
           {/* Name with serif typography */}
-          <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif tracking-tight mb-6 md:mb-8">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif tracking-tight leading-none font-normal mb-6 md:mb-8">
             <span className="block text-foreground">Raj</span>
             <span className="block text-primary">Shah</span>
           </h1>
 
           {/* Tagline */}
-          <p className="text-lg md:text-2xl text-muted-foreground font-serif italic mb-8 md:mb-10 max-w-2xl mx-auto text-pretty leading-relaxed px-4">
+          <p className="text-lg md:text-xl text-muted-foreground font-serif italic mb-8 md:mb-10 max-w-2xl mx-auto text-pretty leading-relaxed px-4">
             {"\"Transforming ideas into intelligent systems, one line of code at a time.\""}
           </p>
 

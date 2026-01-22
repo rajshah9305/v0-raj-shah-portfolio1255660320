@@ -34,7 +34,7 @@ export function ContactSection() {
           animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : -30 }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-muted-foreground text-xl md:text-2xl leading-relaxed mb-8 tracking-wide">
+          <p className="text-muted-foreground text-lg md:text-xl font-serif italic leading-relaxed mb-8 tracking-wide">
             Every great story deserves a conversation. Whether you want to collaborate
             on an AI project, discuss the future of technology, or just say hello —
             I&apos;d love to hear from you.
@@ -43,7 +43,7 @@ export function ContactSection() {
           {/* Location */}
           <div className="flex items-center gap-3 mb-8 text-muted-foreground">
             <MapPin className="w-5 h-5 text-primary" />
-            <span className="font-mono text-sm">Calgary, Alberta, Canada</span>
+            <span className="font-mono text-sm tracking-wide">Calgary, Alberta, Canada</span>
           </div>
 
           {/* Social links */}
@@ -64,7 +64,7 @@ export function ContactSection() {
                 </div>
 
                 <div>
-                  <div className="font-mono text-sm text-muted-foreground mb-0.5">{link.name}</div>
+                  <div className="font-mono text-xs text-muted-foreground mb-0.5 tracking-wider">{link.name}</div>
                   <div className="text-foreground text-base group-hover:text-primary transition-colors">{link.handle}</div>
                 </div>
                 <span className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-primary">→</span>
@@ -81,7 +81,7 @@ export function ContactSection() {
         >
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block font-mono text-sm text-muted-foreground mb-2.5 uppercase tracking-wider">
+              <label className="block font-mono text-xs md:text-sm text-muted-foreground mb-2.5 uppercase tracking-[0.2em]">
                 Name
               </label>
               <input
@@ -95,7 +95,7 @@ export function ContactSection() {
             </div>
 
             <div>
-              <label className="block font-mono text-sm text-muted-foreground mb-2.5 uppercase tracking-wider">
+              <label className="block font-mono text-xs md:text-sm text-muted-foreground mb-2.5 uppercase tracking-[0.2em]">
                 Email
               </label>
               <input
@@ -109,7 +109,7 @@ export function ContactSection() {
             </div>
 
             <div>
-              <label className="block font-mono text-sm text-muted-foreground mb-2.5 uppercase tracking-wider">
+              <label className="block font-mono text-xs md:text-sm text-muted-foreground mb-2.5 uppercase tracking-[0.2em]">
                 Message
               </label>
               <textarea

@@ -43,7 +43,7 @@ export function StoryChapter({
           transition={{ duration: 0.6 }}
           className="mb-6"
         >
-          <span className="font-mono text-primary text-sm tracking-[0.3em] uppercase">
+          <span className="font-mono text-primary text-sm tracking-[0.2em] uppercase">
             {chapterNumber}
           </span>
         </motion.div>
@@ -59,7 +59,7 @@ export function StoryChapter({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 30 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground mb-5 text-balance"
+          className="text-4xl md:text-5xl lg:text-6xl font-serif tracking-tight leading-tight text-foreground mb-5 text-balance"
         >
           {title}
         </motion.h2>
@@ -69,7 +69,7 @@ export function StoryChapter({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-lg md:text-xl lg:text-2xl text-muted-foreground font-serif italic mb-12"
+          className="text-lg md:text-xl text-muted-foreground font-serif italic mb-12"
         >
           {subtitle}
         </motion.p>

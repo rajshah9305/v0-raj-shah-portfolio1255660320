@@ -39,6 +39,24 @@ export const PROJECTS = [
         description: "A cutting-edge web-based project that redefines portal navigation design with scientific visualization principles.",
         tech: ["TypeScript", "Design System", "React"],
         githubUrl: "https://github.com/rajshah9305/SciViz-Design-System"
+    },
+    {
+        title: "Loom Evolution Canvas",
+        description: "An interactive canvas-based evolutionary simulation exploring complex systems and emergent behavior.",
+        tech: ["TypeScript", "Canvas API", "Simulation"],
+        githubUrl: "https://github.com/rajshah9305/loom-evolution-canvas"
+    },
+    {
+        title: "AI Agenter",
+        description: "A comprehensive management system for AI agencies, streamlining workflow and agent coordination.",
+        tech: ["JavaScript", "AI Integration", "Automation"],
+        githubUrl: "https://github.com/rajshah9305/aIagenter"
+    },
+    {
+        title: "TS Calculator",
+        description: "A robust and type-safe calculator application built with modern web technologies.",
+        tech: ["TypeScript", "Math Logic", "Web App"],
+        githubUrl: "https://github.com/rajshah9305/Calculator"
     }
 ];
 
