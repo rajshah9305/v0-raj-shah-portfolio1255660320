@@ -4,8 +4,7 @@
 
 A narrative-driven developer portfolio that blends storytelling with technical showcasing. This project features a unique terminal-style boot sequence, immersive interactions, and a "Warm Amber & Charcoal" aesthetic that sets it apart from standard portfolios.
 
-![Portfolio Preview](public/preview.png)
-*(Note: Add a screenshot of the landing page here)*
+![Portfolio Preview](public/portfolio-preview.jpeg)
 
 ## 📖 Storyboard
 
