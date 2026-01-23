@@ -23,11 +23,11 @@ export function ServicesSection() {
                         return (
                             <motion.div
                                 key={service.title}
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-50px" }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="group relative p-6 md:p-8 border border-white/5 bg-white/5 rounded-lg hover:bg-white/10 transition-colors duration-300"
+                                transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                                className="group relative p-6 md:p-8 border border-white/5 bg-white/5 rounded-lg hover:bg-white/10 transition-colors duration-300 overflow-hidden"
                             >
                                 <div className="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
                                     <Icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
@@ -52,6 +52,10 @@ export function ServicesSection() {
                                         <div className="w-1 h-1 bg-primary rounded-full animate-pulse delay-75" />
                                         <div className="w-1 h-1 bg-primary rounded-full animate-pulse delay-150" />
                                     </div>
+
+                                    {/* Hover glow & Scanline effect */}
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                                    <div className="absolute inset-0 opacity-0 group-hover:opacity-[0.02] bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[length:100%_4px] pointer-events-none transition-opacity duration-500" />
                                 </div>
                             </motion.div>
                         );

@@ -25,10 +25,10 @@ export function ProjectCard({
 }: ProjectCardProps & { className?: string }) {
   return (
     <motion.article
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
       className={`group relative h-full ${className}`}
     >
       <div className="relative h-full flex flex-col bg-card border border-border rounded-lg p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-primary/50 hover:shadow-[0_0_50px_rgba(224,122,60,0.1)]">

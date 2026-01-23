@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { PHILOSOPHY } from "@/lib/data";
 
@@ -18,10 +20,10 @@ export function PhilosophySection() {
                     {PHILOSOPHY.map((item, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                            viewport={{ once: true, margin: "-50px" }}
                             className="group"
                         >
                             <h3 className="text-2xl md:text-3xl font-serif font-medium tracking-normal leading-tight text-foreground mb-4 group-hover:text-primary transition-colors">
