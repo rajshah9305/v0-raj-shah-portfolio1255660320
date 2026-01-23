@@ -144,6 +144,8 @@ export const SOCIAL_LINKS = [
     { name: "Email", icon: Mail, url: "mailto:contact@rajai.org", handle: "contact@rajai.org" },
 ];
 
+export const DISPLAY_SOCIAL_LINKS = SOCIAL_LINKS.filter(link => link.name !== 'Email');
+
 export const PHILOSOPHY = [
     {
         title: "Systems Thinking",
