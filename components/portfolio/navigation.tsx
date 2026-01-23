@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Github, Globe } from "lucide-react";
-import { SOCIAL_LINKS } from "@/lib/data";
+import { DISPLAY_SOCIAL_LINKS } from "@/lib/data";
 
 const navItems = [
   { name: "Origin", href: "#origin" },
@@ -62,7 +62,7 @@ export function Navigation() {
 
           {/* Social links - Desktop */}
           <div className="hidden md:flex items-center gap-4">
-            {SOCIAL_LINKS.filter(link => link.name !== 'Email').map((link) => (
+            {DISPLAY_SOCIAL_LINKS.map((link) => (
               <a
                 key={link.name}
                 href={link.url}
@@ -113,7 +113,7 @@ export function Navigation() {
               ))}
 
               <div className="flex gap-6 mt-8">
-                {SOCIAL_LINKS.filter(link => link.name !== 'Email').map((link) => (
+                {DISPLAY_SOCIAL_LINKS.map((link) => (
                   <a
                     key={link.name}
                     href={link.url}

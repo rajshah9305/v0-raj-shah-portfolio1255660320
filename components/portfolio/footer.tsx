@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Github, Globe, Heart } from "lucide-react";
-import { SOCIAL_LINKS } from "@/lib/data";
+import { DISPLAY_SOCIAL_LINKS } from "@/lib/data";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -30,7 +30,7 @@ export function Footer() {
 
           {/* Links */}
           <div className="flex items-center gap-6">
-            {SOCIAL_LINKS.filter(link => link.name !== 'Email').map((link) => (
+            {DISPLAY_SOCIAL_LINKS.map((link) => (
               <a
                 key={link.name}
                 href={link.url}
