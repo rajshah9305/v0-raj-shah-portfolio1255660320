@@ -51,7 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${instrumentSerif.variable} ${jetbrainsMono.variable} font-sans antialiased bg-background text-foreground`}>
+      <body className={`${instrumentSerif.variable} ${jetbrainsMono.variable} font-serif antialiased bg-background text-foreground`}>
         {children}
         <Analytics />
       </body>

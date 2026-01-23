@@ -10,8 +10,10 @@ import { JourneyTimeline } from "@/components/portfolio/journey-timeline";
 import { ContactSection } from "@/components/portfolio/contact-section";
 import { Footer } from "@/components/portfolio/footer";
 import { Navigation } from "@/components/portfolio/navigation";
+import { PhilosophySection } from "@/components/portfolio/philosophy-section";
+import { ServicesSection } from "@/components/portfolio/services-section";
 
-import { PROJECTS } from "@/lib/data";
+import { PROJECTS, BOOT_SEQUENCE } from "@/lib/data";
 
 const projects = PROJECTS;
 
@@ -27,7 +29,13 @@ export default function PortfolioPage() {
       {showUI && <Navigation />}
 
       {/* Hero Section */}
-      <HeroSection onBootComplete={() => setShowUI(true)} />
+      <HeroSection onBootComplete={() => setShowUI(true)} bootSequence={BOOT_SEQUENCE} />
+
+      {/* Philosophy Section */}
+      <PhilosophySection />
+
+      {/* Services/Capabilities Section */}
+      <ServicesSection />
 
       {/* Chapter II - Origin Story */}
       <section id="origin">
@@ -85,14 +93,22 @@ export default function PortfolioPage() {
           title="The Creations"
           subtitle="Building the future, one project at a time"
           content={
-            <div className="grid md:grid-cols-2 gap-6 mt-8">
-              {projects.map((project, i) => (
-                <ProjectCard
-                  key={project.title}
-                  {...project}
-                  index={i}
-                />
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-6 gap-6 mt-8">
+              {projects.map((project, i) => {
+                // Bento grid logic:
+                // Pattern: Big(4) - Small(2) | Small(2) - Small(2) - Small(2) | Small(2) - Big(4)
+                const isLarge = i % 4 === 0 || i % 4 === 3;
+                const colSpan = isLarge ? "md:col-span-4" : "md:col-span-2";
+
+                return (
+                  <ProjectCard
+                    key={project.title}
+                    {...project}
+                    index={i}
+                    className={colSpan}
+                  />
+                );
+              })}
             </div>
           }
         />

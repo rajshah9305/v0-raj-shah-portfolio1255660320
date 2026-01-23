@@ -1,5 +1,27 @@
+import { Github, Globe, Mail, Linkedin, Twitter, Bot, Layers, Zap, Layout } from "lucide-react";
 
-import { Github, Globe, Mail, Linkedin, Twitter } from "lucide-react";
+export const SERVICES = [
+    {
+        title: "AI Agent Orchestration",
+        description: "Architecting complex multi-agent systems where autonomous units collaborate to solve high-order problems. From Cerebras-powered swarms to custom LLM workflows.",
+        icon: Bot
+    },
+    {
+        title: "Full-Stack Architecture",
+        description: "Building resilient, scalable applications using the Next.js ecosystem. Focusing on type safety, server-side rendering, and edge computing patterns.",
+        icon: Layers
+    },
+    {
+        title: "System Optimization",
+        description: "Refining code performance and application hydration. Eliminating bottlenecks to ensure instantaneous user interactions and buttery smooth 60fps animations.",
+        icon: Zap
+    },
+    {
+        title: "UX/UI Engineering",
+        description: "Bridging the gap between design and code. implementing pixel-perfect interfaces with advanced motion primitives and Framer Motion interactions.",
+        icon: Layout
+    }
+];
 
 export const PROJECTS = [
     {
@@ -122,12 +144,29 @@ export const SOCIAL_LINKS = [
     { name: "Email", icon: Mail, url: "mailto:contact@rajai.org", handle: "contact@rajai.org" },
 ];
 
+export const PHILOSOPHY = [
+    {
+        title: "Systems Thinking",
+        description: "Viewing software not as isolated code, but as a living ecosystem of interacting components. Every function, every service, and every pixel plays a vital role in the greater whole."
+    },
+    {
+        title: "Refined Simplicity",
+        description: "Complexity is inevitable, but confusion is optional. I strive to distill complex problems into elegant, intuitive solutions that feel effortless to the user."
+    },
+    {
+        title: "Performance as Function",
+        description: "Speed is not just a metric; it's a feature. Efficient code respects the user's time and resources, creating a seamless and immersive digital experience."
+    }
+];
+
 export const BOOT_SEQUENCE = [
-    "> INITIATING RAJ_OS...",
+    "> INITIATING RAJ_OS KERNEL...",
     "> LOADING NEURAL NETWORKS...",
-    "> COMPILING DREAMS INTO CODE...",
-    "> ESTABLISHING CONNECTION TO THE FUTURE...",
-    "> SYSTEM READY.",
+    "> OPTIMIZING CREATIVE ALGORITHMS...",
+    "> CONNECTING TO GLOBAL KNOWLEDGE BASE...",
+    "> COMPILING DREAMS INTO EXECUTABLES...",
+    "> DECRYPTING THE FUTURE...",
+    "> SYSTEM READY. ACCESS GRANTED.",
     "",
-    "Welcome to my story."
+    "Welcome to the digital mindscape."
 ];

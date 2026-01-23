@@ -4,7 +4,13 @@ import { useEffect, useState, useRef, useCallback } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { BOOT_SEQUENCE } from "@/lib/data";
 
-export function HeroSection({ onBootComplete }: { onBootComplete?: () => void }) {
+export function HeroSection({
+  onBootComplete,
+  bootSequence = BOOT_SEQUENCE
+}: {
+  onBootComplete?: () => void;
+  bootSequence?: readonly string[];
+}) {
   const [displayText, setDisplayText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
   const [bootComplete, setBootComplete] = useState(false);
@@ -20,10 +26,10 @@ export function HeroSection({ onBootComplete }: { onBootComplete?: () => void })
 
 
 
-  const bootSequence = useCallback(() => BOOT_SEQUENCE, []);
+  const getBootSequence = useCallback(() => bootSequence, [bootSequence]);
 
   useEffect(() => {
-    const lines = bootSequence();
+    const lines = getBootSequence();
     let lineIndex = 0;
     let charIndex = 0;
     let currentText = "";
@@ -58,7 +64,7 @@ export function HeroSection({ onBootComplete }: { onBootComplete?: () => void })
       clearInterval(typeInterval);
       clearInterval(cursorInterval);
     };
-  }, [bootSequence]);
+  }, [getBootSequence]);
 
   return (
     <motion.section
