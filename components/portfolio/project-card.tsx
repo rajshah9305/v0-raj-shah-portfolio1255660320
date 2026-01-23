@@ -37,15 +37,15 @@ export function ProjectCard({
           <div className="flex gap-1.5">
             <div className="w-2.5 h-2.5 rounded-full bg-primary/80 group-hover:bg-primary transition-colors" />
             <div className="w-2.5 h-2.5 rounded-full bg-[var(--forest)]/80 group-hover:bg-[var(--forest)] transition-colors" />
-            <div className="w-2.5 h-2.5 rounded-full bg-muted-foreground/30 group-hover:bg-muted-foreground/50 transition-colors" />
+            <div className="w-2.5 h-2.5 rounded-full bg-foreground/30 group-hover:bg-foreground/50 transition-colors" />
           </div>
-          <span className="font-mono text-[10px] md:text-xs text-muted-foreground/70 group-hover:text-primary/70 transition-colors truncate tracking-wider">
+          <span className="font-mono text-[10px] md:text-xs text-foreground group-hover:text-primary/70 transition-colors truncate tracking-wider">
             ~/projects/{title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
           </span>
         </div>
 
         {/* Project number - ENHANCED */}
-        <div className="absolute top-0 right-0 p-6 font-mono text-6xl md:text-8xl text-muted/10 font-bold group-hover:text-primary/5 transition-all duration-500 select-none z-0">
+        <div className="absolute top-0 right-0 p-6 font-mono text-6xl md:text-8xl text-foreground/10 font-bold group-hover:text-primary/5 transition-all duration-500 select-none z-0">
           {String(index + 1).padStart(2, '0')}
         </div>
 
@@ -53,13 +53,13 @@ export function ProjectCard({
         <div className="relative z-10 flex-grow flex flex-col justify-between">
           <div>
             <div className="flex items-start gap-4 mb-5">
-              <Terminal className="w-6 h-6 text-primary/70 group-hover:text-primary transition-colors mt-1 flex-shrink-0" />
+              <Terminal className="w-6 h-6 text-foreground group-hover:text-primary transition-colors mt-1 flex-shrink-0" />
               <h3 className="text-3xl md:text-4xl font-serif font-medium tracking-tight leading-none text-foreground group-hover:text-primary transition-colors">
                 {title}
               </h3>
             </div>
 
-            <p className="text-muted-foreground mb-8 leading-relaxed text-base md:text-lg tracking-wide line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
+            <p className="text-foreground mb-8 leading-relaxed text-base md:text-lg tracking-wide line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
               {description}
             </p>
           </div>
@@ -70,7 +70,7 @@ export function ProjectCard({
               {tech.map((t) => (
                 <span
                   key={t}
-                  className="px-2.5 py-1 bg-secondary/50 text-secondary-foreground/80 text-xs font-mono rounded border border-transparent group-hover:border-primary/20 transition-all"
+                  className="px-2.5 py-1 bg-secondary/50 text-foreground text-xs font-mono rounded border border-transparent group-hover:border-primary/20 transition-all"
                 >
                   {t}
                 </span>
@@ -83,7 +83,7 @@ export function ProjectCard({
                 href={githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group/link"
+                className="flex items-center gap-2 text-foreground hover:text-primary transition-colors group/link"
               >
                 <Github className="w-4 h-4" />
                 <span className="font-mono text-sm tracking-wide">Source</span>
@@ -93,7 +93,7 @@ export function ProjectCard({
                   href={liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group/link"
+                  className="flex items-center gap-2 text-foreground hover:text-primary transition-colors group/link"
                 >
                   <ExternalLink className="w-4 h-4" />
                   <span className="font-mono text-sm tracking-wide">Live Demo</span>

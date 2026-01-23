@@ -125,7 +125,7 @@ export function HeroSection({
           </h1>
 
           {/* Tagline */}
-          <p className="text-lg md:text-xl text-muted-foreground font-serif italic mb-8 md:mb-10 max-w-2xl mx-auto text-pretty leading-relaxed px-4">
+          <p className="text-xl md:text-2xl text-foreground font-serif italic mb-8 md:mb-10 max-w-2xl mx-auto text-pretty leading-relaxed px-4">
             {"\"Transforming ideas into intelligent systems, one line of code at a time.\""}
           </p>
 
@@ -137,7 +137,7 @@ export function HeroSection({
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: bootComplete ? 1 : 0, scale: bootComplete ? 1 : 0.8 }}
                 transition={{ delay: 0.6 + i * 0.1 }}
-                className="px-3 md:px-4 py-2 md:py-2.5 border border-border bg-card/50 rounded-full text-xs md:text-sm font-mono text-muted-foreground hover:border-primary hover:text-primary transition-all duration-300 cursor-default"
+                className="px-3 md:px-4 py-2 md:py-2.5 border border-border bg-card/50 rounded-full text-xs md:text-sm font-mono text-foreground hover:border-primary hover:text-primary transition-all duration-300 cursor-default"
               >
                 {role}
               </motion.span>
@@ -155,7 +155,7 @@ export function HeroSection({
         transition={{ delay: 0.8 }}
         className="animate-float absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
       >
-        <div className="flex flex-col items-center gap-3 text-muted-foreground">
+        <div className="flex flex-col items-center gap-3 text-foreground">
           <span className="font-mono text-xs tracking-[0.2em]">SCROLL TO EXPLORE</span>
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -164,16 +164,16 @@ export function HeroSection({
       </motion.div>
 
       {/* Corner decorations */}
-      <div className="hidden md:block absolute top-8 left-8 text-primary font-mono text-xs">
+      <div className="hidden md:block absolute top-8 left-8 text-foreground font-mono text-xs">
         ┌── RAJ_OS ──
       </div>
-      <div className="hidden md:block absolute top-8 right-8 text-primary font-mono text-xs">
+      <div className="hidden md:block absolute top-8 right-8 text-foreground font-mono text-xs">
         ── v2026.01 ──┐
       </div>
-      <div className="hidden md:block absolute bottom-8 left-8 text-primary font-mono text-xs">
+      <div className="hidden md:block absolute bottom-8 left-8 text-foreground font-mono text-xs">
         └── CALGARY, CA
       </div>
-      <div className="hidden md:block absolute bottom-8 right-8 text-primary font-mono text-xs">
+      <div className="hidden md:block absolute bottom-8 right-8 text-foreground font-mono text-xs">
         49.2827°N ──┘
       </div>
     </motion.section>

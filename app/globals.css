@@ -118,6 +118,10 @@
     @apply font-serif tracking-tight text-foreground;
   }
 
+  p {
+    @apply text-foreground font-serif tracking-wide;
+  }
+
   code,
   pre {
     @apply font-mono;

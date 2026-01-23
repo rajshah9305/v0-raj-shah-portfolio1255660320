@@ -69,7 +69,7 @@ export function StoryChapter({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-lg md:text-xl text-muted-foreground font-serif italic mb-12"
+          className="text-xl md:text-2xl text-foreground font-serif italic mb-12"
         >
           {subtitle}
         </motion.p>

@@ -35,13 +35,13 @@ export function ServicesSection() {
 
                                 <div className="h-full flex flex-col justify-between">
                                     <div>
-                                        <span className="font-mono text-xs text-muted-foreground/50 tracking-widest mb-4 block">
+                                        <span className="font-mono text-xs text-foreground/60 tracking-widest mb-4 block">
                                             MOD_{String(index + 1).padStart(2, '0')}
                                         </span>
                                         <h3 className="text-2xl font-serif tracking-tight text-foreground mb-4 group-hover:text-primary transition-colors">
                                             {service.title}
                                         </h3>
-                                        <p className="text-muted-foreground/80 leading-relaxed font-serif tracking-wide text-sm md:text-base">
+                                        <p className="text-foreground leading-relaxed font-serif tracking-wide text-base md:text-lg">
                                             {service.description}
                                         </p>
                                     </div>

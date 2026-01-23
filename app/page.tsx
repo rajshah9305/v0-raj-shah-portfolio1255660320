@@ -45,14 +45,14 @@ export default function PortfolioPage() {
           subtitle="Where curiosity met code"
           content={
             <div className="max-w-3xl">
-              <p className="text-xl md:text-2xl text-foreground leading-relaxed mb-8 tracking-wide">
+              <p className="text-base md:text-lg text-foreground leading-relaxed mb-8 tracking-wide">
                 Based in Calgary, I discovered my passion for building at the intersection
-                of <span className="text-primary font-medium">artificial intelligence</span> and{" "}
-                <span className="text-primary font-medium">web development</span>. What started
+                of <span className="text-foreground font-medium">artificial intelligence</span> and{" "}
+                <span className="text-foreground font-medium">web development</span>. What started
                 as tinkering with code evolved into a mission.
               </p>
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed tracking-wide">
-                Today, through <span className="text-[var(--terminal-green)] font-medium">RAJ AI</span>, I craft
+              <p className="text-base md:text-lg text-foreground leading-relaxed tracking-wide">
+                Today, through <span className="text-foreground font-medium">RAJ AI</span>, I craft
                 intelligent systems that push boundaries — from multi-agent orchestration
                 platforms to no-code AI builders that democratize technology creation.
               </p>
@@ -65,8 +65,8 @@ export default function PortfolioPage() {
                   { value: "∞", label: "Lines of Coffee" }
                 ].map((stat) => (
                   <div key={stat.label} className="text-center group">
-                    <div className="text-3xl md:text-5xl font-serif text-primary mb-2 group-hover:scale-110 transition-transform duration-300">{stat.value}</div>
-                    <div className="font-mono text-xs md:text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300 leading-tight uppercase tracking-wider">{stat.label}</div>
+                    <div className="text-3xl md:text-5xl font-serif text-foreground mb-2 group-hover:scale-110 transition-transform duration-300">{stat.value}</div>
+                    <div className="font-mono text-xs md:text-sm text-foreground group-hover:text-foreground transition-colors duration-300 leading-tight uppercase tracking-wider">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -119,7 +119,7 @@ export default function PortfolioPage() {
             href="https://github.com/rajshah9305?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 border-2 border-primary text-primary font-mono text-base rounded-lg hover:bg-primary hover:text-background transition-all duration-300"
+            className="inline-flex items-center gap-3 px-8 py-4 border-2 border-foreground text-foreground font-mono text-base rounded-lg hover:bg-foreground hover:text-background transition-all duration-300"
           >
             View All Repositories
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
