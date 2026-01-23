@@ -47,7 +47,7 @@ export function SkillsTerminal() {
             <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#ffbd2e]" />
             <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#27ca40]" />
           </div>
-          <span className="font-mono text-[10px] md:text-sm text-muted-foreground tracking-[0.2em]">
+          <span className="font-mono text-xxs md:text-sm text-muted-foreground tracking-[0.2em]">
             raj@skills ~ zsh
           </span>
           <div className="w-12 md:w-16" />

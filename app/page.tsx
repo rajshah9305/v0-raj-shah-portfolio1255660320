@@ -47,12 +47,12 @@ export default function PortfolioPage() {
             <div className="max-w-3xl">
               <p className="text-xl md:text-2xl text-foreground leading-relaxed mb-8 tracking-wide">
                 Based in Calgary, I discovered my passion for building at the intersection
-                of <span className="text-primary font-medium">artificial intelligence</span> and{" "}
-                <span className="text-primary font-medium">web development</span>. What started
+                of <span className="text-primary italic">artificial intelligence</span> and{" "}
+                <span className="text-primary italic">web development</span>. What started
                 as tinkering with code evolved into a mission.
               </p>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed tracking-wide">
-                Today, through <span className="text-[var(--terminal-green)] font-medium">RAJ AI</span>, I craft
+                Today, through <span className="text-[var(--terminal-green)] italic">RAJ AI</span>, I craft
                 intelligent systems that push boundaries — from multi-agent orchestration
                 platforms to no-code AI builders that democratize technology creation.
               </p>

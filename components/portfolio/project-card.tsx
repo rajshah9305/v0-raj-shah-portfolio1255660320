@@ -39,7 +39,7 @@ export function ProjectCard({
             <div className="w-2.5 h-2.5 rounded-full bg-[var(--forest)]/80 group-hover:bg-[var(--forest)] transition-colors" />
             <div className="w-2.5 h-2.5 rounded-full bg-muted-foreground/30 group-hover:bg-muted-foreground/50 transition-colors" />
           </div>
-          <span className="font-mono text-[10px] md:text-xs text-muted-foreground/70 group-hover:text-primary/70 transition-colors truncate tracking-wider">
+          <span className="font-mono text-xxs md:text-xs text-muted-foreground/70 group-hover:text-primary/70 transition-colors truncate tracking-wider">
             ~/projects/{title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
           </span>
         </div>
@@ -54,7 +54,7 @@ export function ProjectCard({
           <div>
             <div className="flex items-start gap-4 mb-5">
               <Terminal className="w-6 h-6 text-primary/70 group-hover:text-primary transition-colors mt-1 flex-shrink-0" />
-              <h3 className="text-3xl md:text-4xl font-serif font-medium tracking-tight leading-none text-foreground group-hover:text-primary transition-colors">
+              <h3 className="text-3xl md:text-4xl font-serif tracking-tight leading-none text-foreground group-hover:text-primary transition-colors">
                 {title}
               </h3>
             </div>
