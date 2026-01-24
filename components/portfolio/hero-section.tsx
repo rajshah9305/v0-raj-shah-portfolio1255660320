@@ -91,7 +91,7 @@ export function HeroSection({
           transition={{ duration: 0.5 }}
           className={`font-mono text-left mb-0 absolute inset-0 flex items-center justify-center z-50 ${bootComplete ? 'hidden' : 'flex'}`}
         >
-          <div className="bg-black/90 backdrop-blur-md border border-border rounded-lg p-4 md:p-6 max-w-[90vw] md:max-w-2xl w-full mx-auto shadow-2xl">
+          <div className="bg-black/40 backdrop-blur-md border border-border rounded-lg p-4 md:p-6 max-w-[90vw] md:max-w-2xl w-full mx-auto shadow-2xl">
             <div className="flex gap-2 mb-4">
               <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
               <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
@@ -198,7 +198,7 @@ export function HeroSection({
         <div className="hidden md:block absolute top-8 left-8 text-foreground font-mono text-xs">
           ┌── RAJ_OS ──
         </div>
-        <div className="hidden md:flex items-center gap-2 absolute top-8 right-8 text-foreground font-mono text-xs">
+        <div className="hidden md:flex items-center gap-4 absolute top-8 right-8 text-foreground font-mono text-xs">
           <Globe className="w-4 h-4" />
           <span>v2026.01 ──┐</span>
         </div>
