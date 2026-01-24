@@ -65,7 +65,7 @@ export function ProjectCard({
           <div>
             <div className="flex items-start gap-4 mb-5">
               <Terminal className="w-6 h-6 text-foreground group-hover:text-primary transition-colors mt-1 flex-shrink-0" />
-              <h3 className="text-3xl md:text-4xl font-serif font-medium tracking-tight leading-none text-foreground group-hover:text-primary transition-colors">
+              <h3 className="text-3xl md:text-4xl font-serif italic tracking-tight leading-none text-foreground group-hover:text-primary transition-colors">
                 {title}
               </h3>
             </div>

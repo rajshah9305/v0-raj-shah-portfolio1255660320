@@ -38,7 +38,7 @@ export function ServicesSection() {
                                         <span className="font-mono text-xs text-foreground/60 tracking-widest mb-4 block">
                                             MOD_{String(index + 1).padStart(2, '0')}
                                         </span>
-                                        <h3 className="text-2xl font-serif tracking-tight text-foreground mb-4 group-hover:text-primary transition-colors">
+                                        <h3 className="text-2xl font-serif italic tracking-tight text-foreground mb-4 group-hover:text-primary transition-colors">
                                             {service.title}
                                         </h3>
                                         <p className="text-foreground leading-relaxed font-serif tracking-wide text-base md:text-lg">

@@ -78,7 +78,7 @@ function TimelineItem({ event, index }: { event: TimelineEvent; index: number })
           {event.year}
         </span>
 
-        <h3 className="text-2xl md:text-3xl font-serif font-medium tracking-normal leading-tight text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+        <h3 className="text-2xl md:text-3xl font-serif italic tracking-normal leading-tight text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
           {event.title}
         </h3>
 
