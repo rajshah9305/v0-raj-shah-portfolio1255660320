@@ -18,7 +18,7 @@ The portfolio is structured as a chronological journey:
 
 ## ✨ Key Features
 
-- **Cinematic Boot Sequence**: An engaging initial loading state that mimics a system startup (`RAJ_OS v2.0`).
+- **Cinematic Boot Sequence**: An engaging initial loading state that mimics a system startup.
 - **Immersive Animations**: Powered by **Framer Motion** for smooth transitions, scroll-triggered reveals, and floating elements.
 - **Interactive Terminal**: A simulated terminal environment that "types" out skills in real-time.
 - **Unified Design System**: Built on a custom "Warm Amber & Charcoal" theme using **Tailwind CSS v4** variables for consistent branding.
