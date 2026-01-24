@@ -52,8 +52,7 @@
 @theme inline {
   --font-serif: var(--font-serif);
   --font-mono: var(--font-mono);
-  --font-sans: var(--font-serif);
-  /* Enforce serif as default sans to unify system if preferred, or keep standard sans */
+  --font-sans: var(--font-sans);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -106,7 +105,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-serif tracking-wide;
+    @apply bg-background text-foreground font-sans tracking-normal;
   }
 
   h1,
@@ -119,7 +118,7 @@
   }
 
   p {
-    @apply text-foreground font-serif tracking-wide;
+    @apply text-foreground font-sans tracking-normal;
   }
 
   code,

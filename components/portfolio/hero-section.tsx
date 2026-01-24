@@ -118,9 +118,9 @@ export function HeroSection({
 
           {/* Name with serif typography */}
           <motion.div variants={fadeInUp}>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif tracking-tight leading-none font-normal mb-6 md:mb-8">
-              <span className="block text-foreground">Raj</span>
-              <span className="block text-primary">Shah</span>
+            <h1 className="text-7xl md:text-9xl lg:text-[12rem] font-serif tracking-tighter leading-[0.8] font-normal mb-8 md:mb-12">
+              <span className="block text-foreground">RAJ</span>
+              <span className="block text-primary">SHAH</span>
             </h1>
           </motion.div>
 
