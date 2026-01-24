@@ -12,10 +12,10 @@ export function HeroSection({
   onBootComplete?: () => void;
   bootSequence?: readonly string[];
 }) {
-  const [displayText, setDisplayText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
   const [bootComplete, setBootComplete] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLSpanElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -33,16 +33,24 @@ export function HeroSection({
     let charIndex = 0;
     let currentText = "";
 
+    if (textRef.current) {
+      textRef.current.textContent = "";
+    }
+
     const typeInterval = setInterval(() => {
       if (lineIndex < lines.length) {
         const currentLine = lines[lineIndex];
         if (charIndex < currentLine.length) {
           currentText += currentLine[charIndex];
-          setDisplayText(currentText);
+          if (textRef.current) {
+            textRef.current.textContent = currentText;
+          }
           charIndex++;
         } else {
           currentText += "\n";
-          setDisplayText(currentText);
+          if (textRef.current) {
+            textRef.current.textContent = currentText;
+          }
           lineIndex++;
           charIndex = 0;
         }
@@ -89,7 +97,7 @@ export function HeroSection({
               <div className="w-3 h-3 rounded-full bg-[#27ca40]" />
             </div>
             <pre className="text-[var(--terminal-green)] text-xs md:text-base leading-relaxed whitespace-pre-wrap min-h-[150px] md:min-h-[200px]">
-              {displayText}
+              <span ref={textRef} />
               <span className={showCursor ? 'opacity-100' : 'opacity-0'}>▊</span>
             </pre>
           </div>
