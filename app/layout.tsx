@@ -1,6 +1,6 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
-import { Instrument_Serif, JetBrains_Mono } from 'next/font/google'
+import { Instrument_Serif, JetBrains_Mono, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { GlobalBackground } from '@/components/portfolio/global-background'
 import './globals.css'
@@ -14,6 +14,11 @@ const instrumentSerif = Instrument_Serif({
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: '--font-mono'
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: '--font-sans'
 });
 
 export const metadata: Metadata = {
@@ -52,7 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${instrumentSerif.variable} ${jetbrainsMono.variable} font-serif antialiased bg-background text-foreground`}>
+      <body className={`${instrumentSerif.variable} ${jetbrainsMono.variable} ${inter.variable} font-sans antialiased bg-background text-foreground`}>
         <GlobalBackground />
         {children}
         <Analytics />
