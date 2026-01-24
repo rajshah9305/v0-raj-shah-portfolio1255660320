@@ -199,8 +199,7 @@ export function HeroSection({
           ┌── RAJ_OS ──
         </div>
         <div className="hidden md:flex items-center gap-4 absolute top-8 right-8 text-foreground font-mono text-xs">
-          <Globe className="w-4 h-4" />
-          <span>v2026.01 ──┐</span>
+          <span> ── v2026.01 ──┐</span>
         </div>
         <div className="hidden md:block absolute bottom-8 left-8 text-foreground font-mono text-xs">
           └── CALGARY, CA
