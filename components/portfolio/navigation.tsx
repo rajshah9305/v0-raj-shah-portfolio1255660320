@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Github, Globe } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { DISPLAY_SOCIAL_LINKS } from "@/lib/data";
+import { defaultTransition } from "@/lib/animations";
 
 const navItems = [
   { name: "Origin", href: "#origin" },
@@ -31,7 +32,7 @@ export function Navigation() {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.5, delay: 1.2 }}
+        transition={{ ...defaultTransition, delay: 1.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
           ? 'bg-background/95 backdrop-blur-lg border-b border-border'
           : ''
@@ -95,6 +96,7 @@ export function Navigation() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
+            transition={defaultTransition}
             className="fixed inset-0 z-40 bg-background md:hidden pt-20"
           >
             <nav className="flex flex-col items-center gap-8 py-12">
@@ -105,7 +107,7 @@ export function Navigation() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  transition={{ delay: i * 0.1, ...defaultTransition }}
                   className="font-serif text-3xl text-foreground hover:text-primary transition-colors"
                 >
                   {item.name}

@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 
 import { SKILL_CATEGORIES } from "@/lib/data";
+import { fadeInUp, slideInLeft, staggerContainer, defaultTransition } from "@/lib/animations";
 
 const skillCategories = SKILL_CATEGORIES;
 
@@ -35,9 +36,9 @@ export function SkillsTerminal() {
     <div ref={containerRef} className="max-w-4xl mx-auto">
       {/* Terminal window */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 40 }}
-        transition={{ duration: 0.6 }}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={fadeInUp}
         className="bg-card border border-border rounded-lg overflow-hidden shadow-2xl"
       >
         {/* Terminal header */}
@@ -54,7 +55,7 @@ export function SkillsTerminal() {
         </div>
 
         {/* Terminal content */}
-        <div className="p-4 md:p-8 font-mono text-sm md:text-base">
+        <div className="p-4 md:p-8 font-mono text-sm md:text-base min-h-[400px]">
           {/* Command line */}
           <div className="flex items-start gap-2 mb-6 flex-wrap">
             <span className="text-[var(--terminal-green)]">❯</span>
@@ -65,21 +66,30 @@ export function SkillsTerminal() {
           {/* Output */}
           <motion.div
             key={activeCategory}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isInView ? 1 : 0 }}
-            transition={{ delay: 0.8 }}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: { delay: 0.8, when: "beforeChildren" }
+              }
+            }}
           >
             <div className="text-foreground mb-5 text-sm md:text-base">
               Fetching skills for category: <span className="text-primary font-medium">{skillCategories[activeCategory]?.name}</span>
             </div>
 
-            <div className="grid gap-3 mb-6">
-              {skillCategories[activeCategory]?.skills.map((skill, i) => (
+            <motion.div
+              className="grid gap-3 mb-6"
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+            >
+              {skillCategories[activeCategory]?.skills.map((skill) => (
                 <motion.div
                   key={skill}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : -10 }}
-                  transition={{ delay: 1 + i * 0.1 }}
+                  variants={slideInLeft}
                   className="flex items-center gap-3"
                 >
                   <span className="text-[var(--terminal-green)]">✓</span>
@@ -88,11 +98,16 @@ export function SkillsTerminal() {
                   <span className="text-primary text-xs md:text-sm">loaded</span>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
 
-            <div className="text-[var(--terminal-green)] text-xs md:text-sm">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.5 }}
+              className="text-[var(--terminal-green)] text-xs md:text-sm"
+            >
               → {skillCategories[activeCategory]?.skills.length} skills loaded successfully
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 
@@ -103,13 +118,14 @@ export function SkillsTerminal() {
               key={cat.name}
               onClick={() => setActiveCategory(i)}
               type="button"
-              className={`flex-none md:flex-1 min-w-[max-content] md:min-w-[80px] px-4 md:px-4 py-3 md:py-3.5 font-mono text-xs md:text-sm transition-all duration-300 whitespace-nowrap ${activeCategory === i
+              className={`flex-none md:flex-1 min-w-[max-content] md:min-w-[80px] px-4 md:px-4 py-3 md:py-3.5 font-mono text-xs md:text-sm transition-all duration-300 whitespace-nowrap relative overflow-hidden group ${activeCategory === i
                 ? 'bg-primary text-background font-medium'
-                : 'text-foreground hover:bg-secondary hover:text-foreground'
+                : 'text-foreground hover:text-primary'
                 }`}
             >
-              <span className="mr-1.5">{cat.icon}</span>
-              <span className="inline">{cat.name}</span>
+              <div className={`absolute inset-0 bg-secondary/50 transform origin-left transition-transform duration-300 ${activeCategory === i ? 'scale-x-100 opacity-0' : 'scale-x-0 group-hover:scale-x-100'}`} />
+              <span className="relative z-10 mr-1.5">{cat.icon}</span>
+              <span className="relative z-10 inline">{cat.name}</span>
             </button>
           ))}
         </div>
@@ -117,4 +133,3 @@ export function SkillsTerminal() {
     </div>
   );
 }
-

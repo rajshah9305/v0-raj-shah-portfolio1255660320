@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { BOOT_SEQUENCE } from "@/lib/data";
+import { fadeInUp, scaleIn, defaultTransition } from "@/lib/animations";
 
 export function HeroSection({
   onBootComplete,
@@ -23,8 +24,6 @@ export function HeroSection({
 
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const y = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
-
-
 
   const getBootSequence = useCallback(() => bootSequence, [bootSequence]);
 
@@ -64,7 +63,7 @@ export function HeroSection({
       clearInterval(typeInterval);
       clearInterval(cursorInterval);
     };
-  }, [getBootSequence]);
+  }, [getBootSequence, onBootComplete]);
 
   return (
     <motion.section
@@ -104,56 +103,80 @@ export function HeroSection({
 
         {/* Main hero content */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: bootComplete ? 1 : 0, y: bootComplete ? 0 : 30 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          initial="hidden"
+          animate={bootComplete ? "visible" : "hidden"}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.2
+              }
+            }
+          }}
         >
           {/* Chapter indicator */}
           <motion.p
             className="font-mono text-primary text-xs md:text-sm tracking-[0.2em] uppercase mb-6 md:mb-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: bootComplete ? 1 : 0 }}
-            transition={{ delay: 0.4 }}
+            variants={fadeInUp}
           >
             Chapter I — The Beginning
           </motion.p>
 
           {/* Name with serif typography */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif tracking-tight leading-none font-normal mb-6 md:mb-8">
-            <span className="block text-foreground">Raj</span>
-            <span className="block text-primary">Shah</span>
-          </h1>
+          <motion.div variants={fadeInUp}>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif tracking-tight leading-none font-normal mb-6 md:mb-8">
+              <span className="block text-foreground">Raj</span>
+              <span className="block text-primary">Shah</span>
+            </h1>
+          </motion.div>
 
           {/* Tagline */}
-          <p className="text-xl md:text-2xl text-foreground font-serif italic mb-8 md:mb-10 max-w-2xl mx-auto text-pretty leading-relaxed px-4">
+          <motion.p
+            variants={fadeInUp}
+            className="text-xl md:text-2xl text-foreground font-serif italic mb-8 md:mb-10 max-w-2xl mx-auto text-pretty leading-relaxed px-4"
+          >
             {"\"Transforming ideas into intelligent systems, one line of code at a time.\""}
-          </p>
+          </motion.p>
 
           {/* Role badges */}
-          <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
-            {["Full-Stack Developer", "AI Enthusiast", "Open-Source Advocate"].map((role, i) => (
+          <motion.div
+            className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12"
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.1,
+                  delayChildren: 0.4
+                }
+              }
+            }}
+          >
+            {["Full-Stack Developer", "AI Enthusiast", "Open-Source Advocate"].map((role) => (
               <motion.span
                 key={role}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: bootComplete ? 1 : 0, scale: bootComplete ? 1 : 0.8 }}
-                transition={{ delay: 0.6 + i * 0.1 }}
-                className="px-3 md:px-4 py-2 md:py-2.5 border border-border bg-card/50 rounded-full text-xs md:text-sm font-mono text-foreground hover:border-primary hover:text-primary transition-all duration-300 cursor-default"
+                variants={scaleIn}
+                whileHover={{ scale: 1.05, borderColor: "var(--primary)", color: "var(--primary)" }}
+                className="px-3 md:px-4 py-2 md:py-2.5 border border-border bg-card/50 rounded-full text-xs md:text-sm font-mono text-foreground transition-colors duration-300 cursor-default"
               >
                 {role}
               </motion.span>
             ))}
-          </div>
-
-
+          </motion.div>
         </motion.div>
       </div>
 
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: bootComplete ? 1 : 0 }}
-        transition={{ delay: 0.8 }}
-        className="animate-float absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
+        animate={{
+          opacity: bootComplete ? 1 : 0,
+          y: bootComplete ? [0, -10, 0] : 0
+        }}
+        transition={{
+          opacity: { delay: 1.5, duration: 1 },
+          y: { repeat: Infinity, duration: 2, ease: "easeInOut" }
+        }}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
       >
         <div className="flex flex-col items-center gap-3 text-foreground">
           <span className="font-mono text-xs tracking-[0.2em]">SCROLL TO EXPLORE</span>
@@ -164,19 +187,24 @@ export function HeroSection({
       </motion.div>
 
       {/* Corner decorations */}
-      <div className="hidden md:block absolute top-8 left-8 text-foreground font-mono text-xs">
-        ┌── RAJ_OS ──
-      </div>
-      <div className="hidden md:block absolute top-8 right-8 text-foreground font-mono text-xs">
-        ── v2026.01 ──┐
-      </div>
-      <div className="hidden md:block absolute bottom-8 left-8 text-foreground font-mono text-xs">
-        └── CALGARY, CA
-      </div>
-      <div className="hidden md:block absolute bottom-8 right-8 text-foreground font-mono text-xs">
-        49.2827°N ──┘
-      </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: bootComplete ? 1 : 0 }}
+        transition={{ delay: 1, duration: 1 }}
+      >
+        <div className="hidden md:block absolute top-8 left-8 text-foreground font-mono text-xs">
+          ┌── RAJ_OS ──
+        </div>
+        <div className="hidden md:block absolute top-8 right-8 text-foreground font-mono text-xs">
+          ── v2026.01 ──┐
+        </div>
+        <div className="hidden md:block absolute bottom-8 left-8 text-foreground font-mono text-xs">
+          └── CALGARY, CA
+        </div>
+        <div className="hidden md:block absolute bottom-8 right-8 text-foreground font-mono text-xs">
+          49.2827°N ──┘
+        </div>
+      </motion.div>
     </motion.section>
   );
 }
-
