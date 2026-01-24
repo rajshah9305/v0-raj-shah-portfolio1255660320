@@ -2,7 +2,7 @@
 
 import React, { forwardRef } from "react";
 import { motion } from "framer-motion";
-import { LoadingSpinner } from "./loading-skeleton";
+import { LoadingSpinner } from "./spinner";
 
 type ButtonVariant = "primary" | "secondary" | "ghost" | "outline";
 type ButtonSize = "sm" | "md" | "lg";

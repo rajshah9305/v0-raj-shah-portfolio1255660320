@@ -118,7 +118,7 @@ export function ProjectCard({
 
         {/* Hover glow & Scanline effect */}
         <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-[0.02] bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[length:100%_4px] pointer-events-none transition-opacity duration-500" />
+
       </div>
     </motion.article>
   );

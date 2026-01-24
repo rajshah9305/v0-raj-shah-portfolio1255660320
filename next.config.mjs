@@ -31,9 +31,6 @@ const nextConfig = {
     }
   ],
 
-  // Optimize bundle
-  swcMinify: true,
-
   // Enable compression
   compress: true,
 

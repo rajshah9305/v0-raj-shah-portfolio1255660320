@@ -81,7 +81,7 @@ export function HeroSection({
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-transparent"
     >
       {/* Scanline effect */}
-      <div className="scanline" />
+
 
       <div className="relative z-20 max-w-4xl mx-auto px-6 text-center">
         {/* Terminal boot sequence */}

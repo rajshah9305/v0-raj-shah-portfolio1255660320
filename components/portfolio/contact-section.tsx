@@ -6,10 +6,10 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Send, MapPin, Mail } from "lucide-react";
 import { SOCIAL_LINKS } from "@/lib/data";
-import { slideInLeft, slideInRight, fadeInUp, staggerContainer, defaultTransition } from "@/lib/animations";
+import { slideInLeft, slideInRight, fadeInUp, staggerContainer, transitions } from "@/lib/animations";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/toast-notification";
-import { validators } from "@/lib/utils";
+import { validators } from "@/lib/validators";
 import ErrorHandler from "@/lib/error-handler";
 
 const socialLinks = SOCIAL_LINKS;
@@ -62,7 +62,9 @@ export function ContactSection() {
     } catch (err) {
       const error = ErrorHandler.unknown(err);
       showError(ErrorHandler.getUserMessage(error));
-      ErrorHandler.log(error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Form submission error:', error);
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -128,7 +130,7 @@ export function ContactSection() {
             hidden: slideInRight.hidden,
             visible: {
               ...slideInRight.visible,
-              transition: { ...defaultTransition, delay: 0.2 }
+              transition: { ...transitions.default, delay: 0.2 }
             }
           }}
         >
