@@ -47,7 +47,7 @@ export function SkillsTerminal() {
             <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#ffbd2e]" />
             <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#27ca40]" />
           </div>
-          <span className="font-mono text-[10px] md:text-sm text-muted-foreground tracking-[0.2em]">
+          <span className="font-mono text-[10px] md:text-sm text-foreground tracking-[0.2em]">
             raj@skills ~ zsh
           </span>
           <div className="w-12 md:w-16" />
@@ -69,7 +69,7 @@ export function SkillsTerminal() {
             animate={{ opacity: isInView ? 1 : 0 }}
             transition={{ delay: 0.8 }}
           >
-            <div className="text-muted-foreground mb-5 text-sm md:text-base">
+            <div className="text-foreground mb-5 text-sm md:text-base">
               Fetching skills for category: <span className="text-primary font-medium">{skillCategories[activeCategory]?.name}</span>
             </div>
 
@@ -105,7 +105,7 @@ export function SkillsTerminal() {
               type="button"
               className={`flex-none md:flex-1 min-w-[max-content] md:min-w-[80px] px-4 md:px-4 py-3 md:py-3.5 font-mono text-xs md:text-sm transition-all duration-300 whitespace-nowrap ${activeCategory === i
                 ? 'bg-primary text-background font-medium'
-                : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
+                : 'text-foreground hover:bg-secondary hover:text-foreground'
                 }`}
             >
               <span className="mr-1.5">{cat.icon}</span>

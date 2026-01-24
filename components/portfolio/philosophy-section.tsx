@@ -29,7 +29,7 @@ export function PhilosophySection() {
                             <h3 className="text-2xl md:text-3xl font-serif font-medium tracking-normal leading-tight text-foreground mb-4 group-hover:text-primary transition-colors">
                                 {item.title}
                             </h3>
-                            <p className="text-muted-foreground text-base md:text-lg leading-relaxed tracking-wide">
+                            <p className="text-foreground text-base md:text-lg leading-relaxed tracking-wide">
                                 {item.description}
                             </p>
                         </motion.div>

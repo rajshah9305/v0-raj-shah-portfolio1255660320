@@ -75,7 +75,7 @@ function TimelineItem({ event, index }: { event: TimelineEvent; index: number })
           {event.title}
         </h3>
 
-        <p className="text-muted-foreground text-base md:text-lg leading-relaxed tracking-wide">
+        <p className="text-foreground text-base md:text-lg leading-relaxed tracking-wide">
           {event.description}
         </p>
       </div>
