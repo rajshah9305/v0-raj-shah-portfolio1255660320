@@ -13,7 +13,7 @@ export function HeroSection({
   onBootComplete?: () => void;
   bootSequence?: readonly string[];
 }) {
-  const [showCursor, setShowCursor] = useState(true);
+
   const [bootComplete, setBootComplete] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
@@ -64,14 +64,7 @@ export function HeroSection({
       }
     }, 30);
 
-    const cursorInterval = setInterval(() => {
-      setShowCursor(prev => !prev);
-    }, 530);
 
-    return () => {
-      clearInterval(typeInterval);
-      clearInterval(cursorInterval);
-    };
   }, [getBootSequence, onBootComplete]);
 
   return (
@@ -99,7 +92,7 @@ export function HeroSection({
             </div>
             <pre className="text-[var(--terminal-green)] text-xs md:text-base leading-relaxed whitespace-pre-wrap min-h-[150px] md:min-h-[200px]">
               <span ref={textRef} />
-              <span className={showCursor ? 'opacity-100' : 'opacity-0'}>▊</span>
+              <span className="text-primary">▊</span>
             </pre>
           </div>
         </motion.div>

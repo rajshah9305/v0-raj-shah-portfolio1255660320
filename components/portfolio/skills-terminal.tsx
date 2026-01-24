@@ -69,7 +69,7 @@ export function SkillsTerminal() {
           <div className="flex items-start gap-2 mb-6 flex-wrap">
             <span className="text-[var(--terminal-green)]">❯</span>
             <span className="text-foreground break-all">{typedCommand}</span>
-            <span className="cursor-blink text-primary">▊</span>
+            <span className="text-primary">▊</span>
           </div>
 
           {/* Output */}

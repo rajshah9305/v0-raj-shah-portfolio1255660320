@@ -198,21 +198,9 @@
   background: var(--amber-light);
 }
 
-/* Soft pulsing cursor (breathing effect) */
-@keyframes pulse-cursor {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.3;
-  }
-}
-
+/* Cursor style */
 .cursor-blink {
-  animation: pulse-cursor 1.5s ease-in-out infinite;
+  opacity: 1;
 }
 
 
@@ -327,22 +315,7 @@
   animation: shimmer 3s infinite linear;
 }
 
-/* Pulse effect - Slower breathing */
-@keyframes pulse-effect {
 
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.7;
-  }
-}
-
-.animate-pulse-effect {
-  animation: pulse-effect 4s ease-in-out infinite;
-}
 
 /* Gradient shift */
 @keyframes gradient-shift {

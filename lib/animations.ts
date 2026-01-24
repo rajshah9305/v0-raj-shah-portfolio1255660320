@@ -157,17 +157,6 @@ export const hoverRotate = {
 /**
  * Looping animations
  */
-export const pulse: Variants = {
-  initial: { opacity: 1 },
-  animate: {
-    opacity: [1, 0.5, 1],
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  },
-};
 
 export const bounce: Variants = {
   initial: { y: 0 },
