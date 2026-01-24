@@ -139,7 +139,7 @@
 
   /* Subtitles and secondary headings */
   .subtitle-primary {
-    @apply text-xl md:text-2xl font-serif italic tracking-normal leading-relaxed text-foreground;
+    @apply text-sm md:text-base font-mono tracking-widest uppercase text-primary mb-2;
   }
 
   .subtitle-secondary {
