@@ -63,6 +63,7 @@ export function Navigation() {
 
           {/* Social links - Desktop */}
           <div className="hidden md:flex items-center gap-4">
+            {/* Optimization: Uses pre-filtered static data */}
             {DISPLAY_SOCIAL_LINKS.map((link) => (
               <a
                 key={link.name}
