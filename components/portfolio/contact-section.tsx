@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Send, MapPin } from "lucide-react";
 import { SOCIAL_LINKS } from "@/lib/data";
+import { slideInLeft, slideInRight, fadeInUp, staggerContainer, defaultTransition } from "@/lib/animations";
 
 const socialLinks = SOCIAL_LINKS;
 
@@ -30,9 +31,9 @@ export function ContactSection() {
       <div className="grid md:grid-cols-2 gap-12 md:gap-16">
         {/* Left side - Info */}
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : -30 }}
-          transition={{ duration: 0.6 }}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={slideInLeft}
         >
           <p className="text-foreground text-xl md:text-2xl font-serif italic leading-relaxed mb-8 tracking-wide">
             Every great story deserves a conversation. Whether you want to collaborate
@@ -47,17 +48,21 @@ export function ContactSection() {
           </div>
 
           {/* Social links */}
-          <div className="space-y-4">
-            {socialLinks.map((link, i) => (
+          <motion.div
+            className="space-y-4"
+            variants={staggerContainer}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
+            {socialLinks.map((link) => (
               <motion.a
                 key={link.name}
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : -20 }}
-                transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
-                className="group flex items-center gap-4 p-4 bg-card border border-border rounded-lg hover:border-primary transition-all duration-300"
+                variants={fadeInUp}
+                whileHover={{ x: 10, borderColor: "var(--primary)" }}
+                className="group flex items-center gap-4 p-4 bg-card border border-border rounded-lg transition-all duration-300"
               >
                 <div className="w-10 h-10 flex items-center justify-center bg-secondary rounded-lg group-hover:bg-primary transition-colors duration-300">
                   <link.icon className="w-5 h-5 text-foreground group-hover:text-background transition-colors duration-300" />
@@ -70,14 +75,20 @@ export function ContactSection() {
                 <span className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-primary">→</span>
               </motion.a>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* Right side - Form */}
         <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : 30 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={{
+            hidden: slideInRight.hidden,
+            visible: {
+              ...slideInRight.visible,
+              transition: { ...defaultTransition, delay: 0.2 }
+            }
+          }}
         >
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
@@ -122,9 +133,11 @@ export function ContactSection() {
               />
             </div>
 
-            <button
+            <motion.button
               type="submit"
               disabled={isSubmitting}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-primary text-background font-mono font-semibold rounded-lg hover:bg-[var(--amber-light)] disabled:opacity-50 transition-all duration-300 shadow-lg shadow-primary/20"
             >
               {isSubmitting ? (
@@ -138,11 +151,10 @@ export function ContactSection() {
                   Send Message
                 </>
               )}
-            </button>
+            </motion.button>
           </form>
         </motion.div>
       </div >
     </div >
   );
 }
-

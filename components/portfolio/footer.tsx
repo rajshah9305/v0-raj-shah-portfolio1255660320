@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Github, Globe, Heart } from "lucide-react";
 import { DISPLAY_SOCIAL_LINKS } from "@/lib/data";
+import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,12 +14,16 @@ export function Footer() {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(224,122,60,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(224,122,60,0.015)_1px,transparent_1px)] bg-[size:30px_30px]" />
 
       <div className="relative max-w-5xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <motion.div
+          className="flex flex-col md:flex-row items-center justify-between gap-6"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {/* Logo/Name */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            variants={fadeInUp}
             className="text-center md:text-left"
           >
             <h3 className="text-2xl font-serif text-foreground">Raj Shah</h3>
@@ -29,26 +34,27 @@ export function Footer() {
 
 
           {/* Links */}
-          <div className="flex items-center gap-6">
+          <motion.div
+            variants={fadeInUp}
+            className="flex items-center gap-6"
+          >
             {DISPLAY_SOCIAL_LINKS.map((link) => (
               <a
                 key={link.name}
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 transform hover:scale-110"
                 aria-label={link.name}
               >
                 <link.icon className="w-5 h-5" />
               </a>
             ))}
-          </div>
+          </motion.div>
 
           {/* Copyright */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            variants={fadeInUp}
             className="text-center md:text-right"
           >
             <p className="font-mono text-sm text-muted-foreground flex items-center justify-center md:justify-end gap-1.5">
@@ -60,14 +66,20 @@ export function Footer() {
               © {currentYear} • All chapters reserved
             </p>
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* Easter egg terminal line */}
-        <div className="mt-8 pt-8 border-t border-border text-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+          viewport={{ once: true }}
+          className="mt-8 pt-8 border-t border-border text-center"
+        >
           <p className="font-mono text-sm text-muted-foreground">
             {'>'} raj --version 2.0.26 | BUILD_STATUS: ✓ SHIPPING_DREAMS
           </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
