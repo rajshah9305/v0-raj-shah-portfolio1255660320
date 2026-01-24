@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { Instrument_Serif, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { GlobalBackground } from '@/components/portfolio/global-background'
 import './globals.css'
 
 const instrumentSerif = Instrument_Serif({
@@ -52,6 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${instrumentSerif.variable} ${jetbrainsMono.variable} font-serif antialiased bg-background text-foreground`}>
+        <GlobalBackground />
         {children}
         <Analytics />
       </body>

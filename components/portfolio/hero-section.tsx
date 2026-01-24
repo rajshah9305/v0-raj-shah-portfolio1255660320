@@ -69,16 +69,10 @@ export function HeroSection({
     <motion.section
       ref={containerRef}
       style={{ opacity, y }}
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-background"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-transparent"
     >
       {/* Scanline effect */}
       <div className="scanline" />
-
-      {/* Background grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(224,122,60,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(224,122,60,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
-
-      {/* Ambient glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-[var(--amber)] opacity-[0.03] blur-[120px]" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         {/* Terminal boot sequence */}

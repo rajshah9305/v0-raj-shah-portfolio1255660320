@@ -21,10 +21,7 @@ export default function PortfolioPage() {
   const [showUI, setShowUI] = useState(false);
 
   return (
-    <main className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Noise overlay for texture */}
-      <div className="noise-overlay" />
-
+    <main className="relative min-h-screen bg-transparent text-foreground overflow-x-hidden">
       {/* Navigation */}
       {showUI && <Navigation />}
 
