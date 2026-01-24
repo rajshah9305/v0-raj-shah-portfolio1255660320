@@ -7,7 +7,7 @@ import { fadeInUp, defaultTransition } from "@/lib/animations";
 interface ProjectCardProps {
   title: string;
   description: string;
-  tech: string[];
+  tech: readonly string[];
   githubUrl: string;
   liveUrl?: string;
   featured?: boolean;
