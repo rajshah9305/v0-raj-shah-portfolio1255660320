@@ -1,0 +1,67 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { SERVICES } from "@/lib/data";
+
+export function ServicesSection() {
+    return (
+        <section className="py-24 md:py-32 px-4 md:px-8 border-b border-white/10 bg-background/50 backdrop-blur-sm relative overflow-hidden">
+            <div className="max-w-7xl mx-auto">
+                <div className="mb-16 md:mb-24">
+                    <span className="text-label mb-4 block">
+                        System Modules
+                    </span>
+                    <h2>
+                        System Capabilities
+                    </h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                    {SERVICES.map((service, index) => {
+                        const Icon = service.icon;
+
+                        return (
+                            <motion.div
+                                key={service.title}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                                className="group relative p-6 md:p-8 border border-white/5 bg-white/5 rounded-lg hover:bg-white/10 transition-colors duration-300 overflow-hidden"
+                            >
+                                <div className="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                                    <Icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
+                                </div>
+
+                                <div className="h-full flex flex-col justify-between">
+                                    <div>
+                                        <span className="text-caption mb-4 block font-mono tracking-widest">
+                                            MOD_{String(index + 1).padStart(2, '0')}
+                                        </span>
+                                        <h3 className="text-2xl font-serif italic tracking-tight text-foreground mb-4 group-hover:text-primary transition-colors">
+                                            {service.title}
+                                        </h3>
+                                        <p className="text-foreground leading-relaxed font-serif tracking-wide text-base md:text-lg">
+                                            {service.description}
+                                        </p>
+                                    </div>
+
+                                    {/* Decorative Elements */}
+                                    <div className="absolute bottom-4 right-4 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                        <div className="w-1 h-1 bg-primary rounded-full animate-pulse" />
+                                        <div className="w-1 h-1 bg-primary rounded-full animate-pulse delay-75" />
+                                        <div className="w-1 h-1 bg-primary rounded-full animate-pulse delay-150" />
+                                    </div>
+
+                                    {/* Hover glow & Scanline effect */}
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                                    <div className="absolute inset-0 opacity-0 group-hover:opacity-[0.02] bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[length:100%_4px] pointer-events-none transition-opacity duration-500" />
+                                </div>
+                            </motion.div>
+                        );
+                    })}
+                </div>
+            </div>
+        </section>
+    );
+}
