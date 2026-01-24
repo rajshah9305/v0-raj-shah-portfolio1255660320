@@ -19,16 +19,25 @@ export function SkillsTerminal() {
   useEffect(() => {
     if (isInView) {
       setTypedCommand("");
-      let i = 0;
-      const interval = setInterval(() => {
-        if (i < command.length) {
-          setTypedCommand(command.slice(0, i + 1));
-          i++;
+      let startTime: number | null = null;
+      let animationFrameId: number;
+
+      const animate = (timestamp: number) => {
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        // 30ms per character for typing effect
+        const charIndex = Math.floor(elapsed / 30);
+
+        if (charIndex < command.length) {
+          setTypedCommand(command.slice(0, charIndex + 1));
+          animationFrameId = requestAnimationFrame(animate);
         } else {
-          clearInterval(interval);
+          setTypedCommand(command);
         }
-      }, 20);
-      return () => clearInterval(interval);
+      };
+
+      animationFrameId = requestAnimationFrame(animate);
+      return () => cancelAnimationFrame(animationFrameId);
     }
   }, [isInView, activeCategory, command]);
 
