@@ -21,7 +21,7 @@ export default function PortfolioPage() {
     const [showUI, setShowUI] = useState(false);
 
     return (
-        <main className="relative min-h-screen bg-transparent text-foreground overflow-x-hidden">
+        <main className="relative min-h-screen bg-transparent text-foreground overflow-x-hidden" role="main">
             {/* Navigation */}
             {showUI && <Navigation />}
 
@@ -35,7 +35,7 @@ export default function PortfolioPage() {
             <ServicesSection />
 
             {/* Chapter II - Origin Story */}
-            <section id="origin">
+            <section id="origin" aria-label="Origin story - Where curiosity met code">
                 <StoryChapter
                     chapterNumber="Chapter II"
                     title="The Origin"
@@ -73,7 +73,7 @@ export default function PortfolioPage() {
             </section>
 
             {/* Chapter III - Skills Arsenal */}
-            <section id="arsenal" className="bg-card">
+            <section id="arsenal" className="bg-card" aria-label="Arsenal - Technical skills and expertise">
                 <StoryChapter
                     chapterNumber="Chapter III"
                     title="The Arsenal"
@@ -84,7 +84,7 @@ export default function PortfolioPage() {
             </section>
 
             {/* Chapter IV - Creations */}
-            <section id="creations">
+            <section id="creations" aria-label="Creations - Portfolio of projects and work">
                 <StoryChapter
                     chapterNumber="Chapter IV"
                     title="The Creations"
@@ -109,7 +109,7 @@ export default function PortfolioPage() {
             </section>
 
             {/* Chapter V - Journey */}
-            <section id="journey" className="bg-card">
+            <section id="journey" className="bg-card" aria-label="Journey - Timeline of milestones and experiences">
                 <StoryChapter
                     chapterNumber="Chapter V"
                     title="The Journey"
@@ -120,7 +120,7 @@ export default function PortfolioPage() {
             </section>
 
             {/* Chapter VI - Connect */}
-            <section id="connect">
+            <section id="connect" aria-label="Connect - Get in touch and collaboration">
                 <StoryChapter
                     chapterNumber="Chapter VI"
                     title="Let's Connect"

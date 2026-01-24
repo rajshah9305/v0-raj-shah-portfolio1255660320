@@ -92,44 +92,50 @@ export function ContactSection() {
                 >
                     <form onSubmit={handleSubmit} className="space-y-5">
                         <div>
-                            <label className="block text-label mb-2.5">
+                            <label htmlFor="name-input" className="block text-label mb-2.5">
                                 Name
                             </label>
                             <input
+                                id="name-input"
                                 type="text"
                                 value={formState.name}
                                 onChange={(e) => setFormState(prev => ({ ...prev, name: e.target.value }))}
                                 className="w-full px-4 py-3.5 bg-card border border-border rounded-lg text-foreground placeholder:text-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all"
                                 placeholder="Enter your name"
                                 required
+                                aria-required="true"
                             />
                         </div>
 
                         <div>
-                            <label className="block text-label mb-2.5">
+                            <label htmlFor="email-input" className="block text-label mb-2.5">
                                 Email
                             </label>
                             <input
+                                id="email-input"
                                 type="email"
                                 value={formState.email}
                                 onChange={(e) => setFormState(prev => ({ ...prev, email: e.target.value }))}
                                 className="w-full px-4 py-3.5 bg-card border border-border rounded-lg text-foreground placeholder:text-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all"
                                 placeholder="your@email.com"
                                 required
+                                aria-required="true"
                             />
                         </div>
 
                         <div>
-                            <label className="block text-label mb-2.5">
+                            <label htmlFor="message-input" className="block text-label mb-2.5">
                                 Message
                             </label>
                             <textarea
+                                id="message-input"
                                 value={formState.message}
                                 onChange={(e) => setFormState(prev => ({ ...prev, message: e.target.value }))}
                                 rows={5}
                                 className="w-full px-4 py-3.5 bg-card border border-border rounded-lg text-foreground placeholder:text-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all resize-none"
                                 placeholder="What's on your mind?"
                                 required
+                                aria-required="true"
                             />
                         </div>
 
@@ -138,7 +144,9 @@ export function ContactSection() {
                             disabled={isSubmitting}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-primary text-background font-mono font-semibold rounded-lg hover:bg-[var(--amber-light)] disabled:opacity-50 transition-all duration-300 shadow-lg shadow-primary/20"
+                            className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-primary text-background font-mono font-semibold rounded-lg hover:bg-[var(--amber-light)] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg shadow-primary/20"
+                            aria-busy={isSubmitting}
+                            aria-label={isSubmitting ? "Sending message" : "Send message"}
                         >
                             {isSubmitting ? (
                                 <>

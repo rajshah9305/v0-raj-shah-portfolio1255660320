@@ -99,6 +99,8 @@ export function Navigation() {
                         exit={{ opacity: 0, y: -20 }}
                         transition={defaultTransition}
                         className="fixed inset-0 z-40 bg-background md:hidden pt-20"
+                        role="navigation"
+                        aria-label="Mobile navigation menu"
                     >
                         <nav className="flex flex-col items-center gap-8 py-12">
                             {navItems.map((item, i) => (
