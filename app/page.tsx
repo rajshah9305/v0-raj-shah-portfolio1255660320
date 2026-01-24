@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { HeroSection } from "@/components/portfolio/hero-section";
 import { StoryChapter } from "@/components/portfolio/story-chapter";
-import { ProjectCard } from "@/components/portfolio/project-card";
+import { ProjectsGrid } from "@/components/portfolio/projects-grid";
 import { SkillsTerminal } from "@/components/portfolio/skills-terminal";
 import { JourneyTimeline } from "@/components/portfolio/journey-timeline";
 import { ContactSection } from "@/components/portfolio/contact-section";
@@ -89,25 +89,7 @@ export default function PortfolioPage() {
           chapterNumber="Chapter IV"
           title="The Creations"
           subtitle="Building the future, one project at a time"
-          content={
-            <div className="grid grid-cols-1 md:grid-cols-6 gap-6 mt-8">
-              {projects.map((project, i) => {
-                // Bento grid logic:
-                // Pattern: Big(4) - Small(2) | Small(2) - Small(2) - Small(2) | Small(2) - Big(4)
-                const isLarge = i % 4 === 0 || i % 4 === 3;
-                const colSpan = isLarge ? "md:col-span-4" : "md:col-span-2";
-
-                return (
-                  <ProjectCard
-                    key={project.title}
-                    {...project}
-                    index={i}
-                    className={colSpan}
-                  />
-                );
-              })}
-            </div>
-          }
+          content={<ProjectsGrid projects={projects} />}
         />
 
         {/* View All Projects Link */}
