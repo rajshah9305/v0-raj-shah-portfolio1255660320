@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef, useCallback } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Globe } from "lucide-react";
 import { BOOT_SEQUENCE } from "@/lib/data";
 import { fadeInUp, scaleIn, defaultTransition } from "@/lib/animations";
 
@@ -82,15 +83,15 @@ export function HeroSection({
       {/* Scanline effect */}
       <div className="scanline" />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <div className="relative z-20 max-w-4xl mx-auto px-6 text-center">
         {/* Terminal boot sequence */}
         <motion.div
           initial={{ opacity: 1 }}
           animate={{ opacity: bootComplete ? 0 : 1 }}
           transition={{ duration: 0.5 }}
-          className={`font-mono text-left mb-0 absolute inset-0 flex items-center justify-center z-50 bg-background ${bootComplete ? 'hidden' : 'flex'}`}
+          className={`font-mono text-left mb-0 absolute inset-0 flex items-center justify-center z-50 ${bootComplete ? 'hidden' : 'flex'}`}
         >
-          <div className="bg-[#050505] border border-border rounded-lg p-4 md:p-6 max-w-[90vw] md:max-w-2xl w-full mx-auto shadow-2xl">
+          <div className="bg-black/90 backdrop-blur-md border border-border rounded-lg p-4 md:p-6 max-w-[90vw] md:max-w-2xl w-full mx-auto shadow-2xl">
             <div className="flex gap-2 mb-4">
               <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
               <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
@@ -158,7 +159,7 @@ export function HeroSection({
                 key={role}
                 variants={scaleIn}
                 whileHover={{ scale: 1.05, borderColor: "var(--primary)", color: "var(--primary)" }}
-                className="px-3 md:px-4 py-2 md:py-2.5 border border-border bg-card/50 rounded-full text-xs md:text-sm font-mono text-foreground transition-colors duration-300 cursor-default"
+                className="px-3 md:px-4 py-2 md:py-2.5 border border-white/10 bg-black/40 backdrop-blur-md rounded-full text-xs md:text-sm font-mono text-foreground transition-colors duration-300 cursor-default"
               >
                 {role}
               </motion.span>
@@ -197,8 +198,9 @@ export function HeroSection({
         <div className="hidden md:block absolute top-8 left-8 text-foreground font-mono text-xs">
           ┌── RAJ_OS ──
         </div>
-        <div className="hidden md:block absolute top-8 right-8 text-foreground font-mono text-xs">
-          ── v2026.01 ──┐
+        <div className="hidden md:flex items-center gap-2 absolute top-8 right-8 text-foreground font-mono text-xs">
+          <Globe className="w-4 h-4" />
+          <span>v2026.01 ──┐</span>
         </div>
         <div className="hidden md:block absolute bottom-8 left-8 text-foreground font-mono text-xs">
           └── CALGARY, CA
