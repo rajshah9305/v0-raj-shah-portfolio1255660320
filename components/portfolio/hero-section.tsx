@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useRef, useCallback } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Globe } from "lucide-react";
 import { BOOT_SEQUENCE } from "@/lib/data";
 import { fadeInUp, scaleIn } from "@/lib/animations";
 import { cn } from "@/lib/utils";
@@ -194,10 +193,6 @@ export function HeroSection({
       >
         <div className="hidden md:block absolute top-8 left-8 text-foreground font-mono text-xs tracking-normal">
           ┌── RAJ_OS ──
-        </div>
-        <div className="hidden md:flex items-center gap-4 absolute top-8 right-8 text-foreground font-mono text-xs tracking-normal">
-          <Globe className="w-4 h-4" />
-          <span> ── v2026 ──┐</span>
         </div>
         <div className="hidden md:block absolute bottom-8 left-8 text-foreground font-mono text-xs tracking-normal">
           └── CALGARY, CA
