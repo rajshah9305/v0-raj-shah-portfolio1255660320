@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/toast-notification";
 import { validators } from "@/lib/validators";
 import ErrorHandler from "@/lib/error-handler";
+import { cn } from "@/lib/utils";
 
 const socialLinks = SOCIAL_LINKS;
 
@@ -43,7 +44,7 @@ export function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       showError("Please fix the errors below");
       return;
@@ -54,7 +55,7 @@ export function ContactSection() {
     try {
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      
+
       // Success
       success("Message sent successfully! I'll get back to you soon.");
       setFormState({ name: "", email: "", message: "" });
@@ -147,9 +148,10 @@ export function ContactSection() {
                   setFormState(prev => ({ ...prev, name: e.target.value }));
                   if (errors.name) setErrors(prev => ({ ...prev, name: '' }));
                 }}
-                className={`w-full px-4 py-3.5 bg-card border rounded-lg text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background transition-all ${
-                  errors.name ? 'border-red-500 focus:ring-red-500' : 'border-border focus:ring-primary'
-                }`}
+                className={cn(
+                  "w-full px-4 py-3.5 bg-card border rounded-lg text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background transition-all",
+                  errors.name ? "border-red-500 focus:ring-red-500" : "border-border focus:ring-primary"
+                )}
                 placeholder="Enter your name"
                 required
                 aria-required="true"
@@ -169,9 +171,10 @@ export function ContactSection() {
                   setFormState(prev => ({ ...prev, email: e.target.value }));
                   if (errors.email) setErrors(prev => ({ ...prev, email: '' }));
                 }}
-                className={`w-full px-4 py-3.5 bg-card border rounded-lg text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background transition-all ${
-                  errors.email ? 'border-red-500 focus:ring-red-500' : 'border-border focus:ring-primary'
-                }`}
+                className={cn(
+                  "w-full px-4 py-3.5 bg-card border rounded-lg text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background transition-all",
+                  errors.email ? "border-red-500 focus:ring-red-500" : "border-border focus:ring-primary"
+                )}
                 placeholder="your@email.com"
                 required
                 aria-required="true"
@@ -191,9 +194,10 @@ export function ContactSection() {
                   if (errors.message) setErrors(prev => ({ ...prev, message: '' }));
                 }}
                 rows={5}
-                className={`w-full px-4 py-3.5 bg-card border rounded-lg text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background transition-all resize-none ${
-                  errors.message ? 'border-red-500 focus:ring-red-500' : 'border-border focus:ring-primary'
-                }`}
+                className={cn(
+                  "w-full px-4 py-3.5 bg-card border rounded-lg text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background transition-all resize-none",
+                  errors.message ? "border-red-500 focus:ring-red-500" : "border-border focus:ring-primary"
+                )}
                 placeholder="What's on your mind?"
                 required
                 aria-required="true"

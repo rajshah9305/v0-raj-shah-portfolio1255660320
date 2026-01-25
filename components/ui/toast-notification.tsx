@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, AlertCircle, Info, X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export type ToastType = "success" | "error" | "info" | "warning";
 
@@ -56,10 +57,13 @@ function ToastNotification({ toast, onClose }: ToastNotificationProps) {
       initial={{ opacity: 0, y: -20, x: 20 }}
       animate={{ opacity: 1, y: 0, x: 0 }}
       exit={{ opacity: 0, y: -20, x: 20 }}
-      className={`flex items-center gap-3 px-4 py-3 rounded-lg border border-white/10 ${config.bgColor} backdrop-blur-md`}
+      className={cn(
+        "flex items-center gap-3 px-4 py-3 rounded-lg border border-white/10 backdrop-blur-md",
+        config.bgColor
+      )}
     >
       {config.icon}
-      <p className={`text-sm font-medium ${config.textColor}`}>{toast.message}</p>
+      <p className={cn("text-sm font-medium", config.textColor)}>{toast.message}</p>
       <button
         onClick={() => onClose(toast.id)}
         className="ml-auto p-1 hover:bg-white/10 rounded transition-colors"

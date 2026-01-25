@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { DISPLAY_SOCIAL_LINKS } from "@/lib/data";
 import { defaultTransition } from "@/lib/animations";
+import { cn } from "@/lib/utils";
 
 const navItems = [
     { name: "Origin", href: "#origin" },
@@ -33,10 +34,10 @@ export function Navigation() {
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 transition={{ ...defaultTransition, delay: 1.5 }}
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                    ? 'bg-background/95 backdrop-blur-lg border-b border-border'
-                    : ''
-                    }`}
+                className={cn(
+                    "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+                    isScrolled && "bg-background/95 backdrop-blur-lg border-b border-border"
+                )}
             >
                 <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
                     {/* Logo */}

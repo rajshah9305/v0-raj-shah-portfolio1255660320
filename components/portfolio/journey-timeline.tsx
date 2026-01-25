@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 import { TIMELINE_EVENTS } from "@/lib/data";
 import { slideInLeft, slideInRight, defaultTransition } from "@/lib/animations";
+import { cn } from "@/lib/utils";
 
 type TimelineEvent = typeof TIMELINE_EVENTS[number];
 
@@ -62,10 +63,16 @@ function TimelineItem({ event, index }: { event: TimelineEvent; index: number })
           transition: { ...defaultTransition, delay: 0.2 }
         }
       }}
-      className={`relative flex flex-col md:flex-row items-start md:items-center ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} mb-12 md:mb-0 group`}
+      className={cn(
+        "relative flex flex-col md:flex-row items-start md:items-center mb-12 md:mb-0 group",
+        isLeft ? "md:flex-row" : "md:flex-row-reverse"
+      )}
     >
       {/* Content */}
-      <div className={`ml-8 md:ml-0 md:w-1/2 ${isLeft ? 'md:pr-12 md:text-right' : 'md:pl-12 text-left'} w-full`}>
+      <div className={cn(
+        "ml-8 md:ml-0 md:w-1/2 w-full",
+        isLeft ? "md:pr-12 md:text-right" : "md:pl-12 text-left"
+      )}>
         {/* Year badge */}
         <span
           className="inline-block px-3 py-1.5 mb-3 font-mono text-xs md:text-sm tracking-normal rounded-md border"

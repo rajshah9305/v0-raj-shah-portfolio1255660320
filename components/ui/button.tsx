@@ -3,6 +3,7 @@
 import React, { forwardRef } from "react";
 import { motion } from "framer-motion";
 import { LoadingSpinner } from "./spinner";
+import { cn } from "@/lib/utils";
 
 type ButtonVariant = "primary" | "secondary" | "ghost" | "outline";
 type ButtonSize = "sm" | "md" | "lg";
@@ -58,16 +59,16 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         disabled={disabled || isLoading}
-        className={`
-          ${variantStyles[variant]}
-          ${sizeStyles[size]}
-          ${fullWidth ? "w-full" : ""}
-          inline-flex items-center justify-center gap-2
-          font-mono tracking-normal
-          transition-all duration-300
-          disabled:opacity-50 disabled:cursor-not-allowed
-          focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background
-        `}
+        className={cn(
+          variantStyles[variant],
+          sizeStyles[size],
+          fullWidth && "w-full",
+          "inline-flex items-center justify-center gap-2",
+          "font-mono tracking-normal",
+          "transition-all duration-300",
+          "disabled:opacity-50 disabled:cursor-not-allowed",
+          "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+        )}
         {...(props as any)}
       >
         {isLoading ? (

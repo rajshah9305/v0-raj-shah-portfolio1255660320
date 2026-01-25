@@ -4,6 +4,7 @@ import React from "react"
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface StoryChapterProps {
   chapterNumber: string;
@@ -33,9 +34,15 @@ export function StoryChapter({
   return (
     <motion.section
       ref={containerRef}
-      className={`py-20 md:py-28 lg:py-32 px-6 ${align === "center" ? "text-center" : ""}`}
+      className={cn(
+        "py-20 md:py-28 lg:py-32 px-6",
+        align === "center" && "text-center"
+      )}
     >
-      <div className={`max-w-5xl mx-auto ${align === "right" ? "text-right" : ""}`}>
+      <div className={cn(
+        "max-w-5xl mx-auto",
+        align === "right" && "text-right"
+      )}>
         {/* Chapter number */}
         <motion.div
           initial={{ opacity: 0, x: align === "right" ? 30 : -30 }}
@@ -50,7 +57,10 @@ export function StoryChapter({
 
         {/* Animated line */}
         <motion.div
-          className={`h-px bg-primary mb-8 max-w-md ${align === "right" ? "ml-auto" : align === "center" ? "mx-auto" : ""}`}
+          className={cn(
+            "h-px bg-primary mb-8 max-w-md",
+            align === "right" ? "ml-auto" : align === "center" ? "mx-auto" : ""
+          )}
           style={{ width: lineWidth }}
         />
 

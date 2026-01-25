@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 
 import { SKILL_CATEGORIES } from "@/lib/data";
 import { fadeInUp, slideInLeft, staggerContainer, defaultTransition } from "@/lib/animations";
+import { cn } from "@/lib/utils";
 
 const skillCategories = SKILL_CATEGORIES;
 
@@ -130,12 +131,17 @@ export function SkillsTerminal() {
               role="tab"
               aria-selected={activeCategory === i}
               aria-label={`Skills for ${cat.name} category`}
-              className={`flex-none md:flex-1 min-w-[max-content] md:min-w-[80px] px-4 md:px-4 py-3 md:py-3.5 font-mono text-xs md:text-sm transition-all duration-300 whitespace-nowrap relative overflow-hidden group ${activeCategory === i
-                ? 'bg-primary text-background font-medium'
-                : 'text-foreground hover:text-primary'
-                }`}
+              className={cn(
+                "flex-none md:flex-1 min-w-[max-content] md:min-w-[80px] px-4 md:px-4 py-3 md:py-3.5 font-mono text-xs md:text-sm transition-all duration-300 whitespace-nowrap relative overflow-hidden group",
+                activeCategory === i
+                  ? "bg-primary text-background font-medium"
+                  : "text-foreground hover:text-primary"
+              )}
             >
-              <div className={`absolute inset-0 bg-secondary/50 transform origin-left transition-transform duration-300 ${activeCategory === i ? 'scale-x-100 opacity-0' : 'scale-x-0 group-hover:scale-x-100'}`} />
+              <div className={cn(
+                "absolute inset-0 bg-secondary/50 transform origin-left transition-transform duration-300",
+                activeCategory === i ? "scale-x-100 opacity-0" : "scale-x-0 group-hover:scale-x-100"
+              )} />
               <span className="relative z-10 mr-1.5">{cat.icon}</span>
               <span className="relative z-10 inline">{cat.name}</span>
             </button>

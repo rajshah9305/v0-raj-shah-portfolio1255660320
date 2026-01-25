@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Globe } from "lucide-react";
 import { BOOT_SEQUENCE } from "@/lib/data";
 import { fadeInUp, scaleIn, defaultTransition } from "@/lib/animations";
+import { cn } from "@/lib/utils";
 
 export function HeroSection({
   onBootComplete,
@@ -82,7 +83,10 @@ export function HeroSection({
           initial={{ opacity: 1 }}
           animate={{ opacity: bootComplete ? 0 : 1 }}
           transition={{ duration: 0.5 }}
-          className={`font-mono text-left mb-0 absolute inset-0 flex items-center justify-center z-50 ${bootComplete ? 'hidden' : 'flex'}`}
+          className={cn(
+            "font-mono text-left mb-0 absolute inset-0 flex items-center justify-center z-50",
+            bootComplete ? "hidden" : "flex"
+          )}
         >
           <div className="bg-black/40 backdrop-blur-md border border-border rounded-lg p-4 md:p-6 max-w-[90vw] md:max-w-2xl w-full mx-auto shadow-2xl">
             <div className="flex gap-2 mb-4">

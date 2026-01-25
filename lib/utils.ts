@@ -1,7 +1,9 @@
-/**
- * Central export point for all utilities
- * Import specific modules for better tree-shaking
- */
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+    return twMerge(clsx(inputs));
+}
 
 export { validators } from "./validators";
 export { default as ErrorHandler, ErrorType } from "./error-handler";

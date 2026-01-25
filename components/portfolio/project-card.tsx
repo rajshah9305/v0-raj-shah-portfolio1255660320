@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Github, ExternalLink, Terminal } from "lucide-react";
 import { fadeInUp, defaultTransition } from "@/lib/animations";
+import { cn } from "@/lib/utils";
 
 interface ProjectCardProps {
   title: string;
@@ -40,7 +41,7 @@ export function ProjectCard({
         }
       }}
       whileHover={{ y: -5, transition: { duration: 0.3, ease: "easeOut" } }}
-      className={`group relative h-full ${className}`}
+      className={cn("group relative h-full", className)}
     >
       <div className="relative h-full flex flex-col bg-card border border-border rounded-lg p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-primary/50 hover:shadow-[0_0_50px_rgba(224,122,60,0.1)]">
         {/* Terminal header decoration */}
