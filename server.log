@@ -1,0 +1,14 @@
+
+> raj-shah-portfolio@0.1.0 dev
+> next dev
+
+   ▲ Next.js 16.0.10 (Turbopack)
+   - Local:         http://localhost:3000
+   - Network:       http://192.168.0.2:3000
+
+ ✓ Starting...
+ ✓ Ready in 606ms
+ ○ Compiling / ...
+ GET / 200 in 6.5s (compile: 5.9s, render: 597ms)
+ GET / 200 in 146ms (compile: 7ms, render: 139ms)
+[?25h
