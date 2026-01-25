@@ -1,7 +1,6 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { Instrument_Serif, Inter, JetBrains_Mono } from 'next/font/google'
-import { Playfair_Display, Cormorant_Garamond, Source_Serif_4, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { GlobalBackground } from '@/components/portfolio/global-background'
 import { cn } from "@/lib/utils";
@@ -11,9 +10,6 @@ import './globals.css'
 const instrumentSerif = Instrument_Serif({
   weight: '400',
   style: ['normal', 'italic'],
-// Dramatic Primary Heading Font - High-contrast serif with elegant presence
-const playfairDisplay = Playfair_Display({
-  weight: ['400', '500', '600', '700', '800', '900'],
   subsets: ["latin"],
   variable: '--font-heading-primary',
   display: 'swap',
@@ -22,32 +18,12 @@ const playfairDisplay = Playfair_Display({
 // Primary Body Font - Clean Sans-Serif
 const inter = Inter({
   subsets: ["latin"],
-  variable: '--font-body'
-});
-
-// Monospace for Code & Technical Labels
-const jetBrainsMono = JetBrains_Mono({
-// Refined Secondary Heading Font - Sophisticated serif with beautiful italics
-const cormorantGaramond = Cormorant_Garamond({
-  weight: ['300', '400', '500', '600', '700'],
-  style: ['normal', 'italic'],
-  subsets: ["latin"],
-  variable: '--font-heading-secondary',
-  display: 'swap',
-});
-
-// Modern Body Font - Excellent screen readability with editorial feel
-const sourceSerif4 = Source_Serif_4({
-  weight: ['300', '400', '500', '600', '700'],
-  style: ['normal', 'italic'],
-  subsets: ["latin"],
   variable: '--font-body',
   display: 'swap',
 });
 
-// Developer-focused Mono - Ligatures and excellent code readability
-const jetbrainsMono = JetBrains_Mono({
-  weight: ['300', '400', '500', '600', '700'],
+// Monospace for Code & Technical Labels
+const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: '--font-mono',
   display: 'swap',
@@ -96,10 +72,6 @@ export default function RootLayout({
         instrumentSerif.variable,
         inter.variable,
         jetBrainsMono.variable,
-        playfairDisplay.variable,
-        cormorantGaramond.variable,
-        sourceSerif4.variable,
-        jetbrainsMono.variable,
         "antialiased bg-background text-foreground"
       )}>
         <GlobalBackground />
