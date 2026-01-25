@@ -132,7 +132,7 @@ export function HeroSection({
           {/* Tagline */}
           <motion.p
             variants={fadeInUp}
-            className="subtitle-primary max-w-2xl mx-auto text-pretty px-4 mb-8 md:mb-10"
+            className="font-mono text-[0.8125rem] leading-relaxed tracking-[0.2em] font-medium uppercase text-black bg-primary px-4 py-2 rounded-md w-fit mx-auto text-pretty mb-8 md:mb-10"
           >
             {"\"Transforming ideas into intelligent systems, one line of code at a time.\""}
           </motion.p>
@@ -193,6 +193,9 @@ export function HeroSection({
       >
         <div className="hidden md:block absolute top-8 left-8 text-foreground font-mono text-xs tracking-normal">
           ┌── RAJ_OS ──
+        </div>
+        <div className="hidden md:block absolute top-8 right-8 text-foreground font-mono text-xs tracking-normal">
+          v2026.01 ──┐
         </div>
         <div className="hidden md:block absolute bottom-8 left-8 text-foreground font-mono text-xs tracking-normal">
           └── CALGARY, CA
