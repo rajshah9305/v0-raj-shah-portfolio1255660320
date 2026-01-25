@@ -50,7 +50,6 @@
 
 @theme inline {
   --font-heading-primary: var(--font-heading-primary);
-  --font-heading-secondary: var(--font-heading-secondary);
   --font-body: var(--font-body);
   --font-mono: var(--font-mono);
 
@@ -141,47 +140,47 @@
   }
 
   /* ============================================================
-     PRIMARY HEADINGS (H1-H2) - DM Serif Display
-     Premium, bold, commanding presence
+     PRIMARY HEADINGS (H1-H2) - Instrument Serif
+     Elegant, condensed, editorial feel
      ============================================================ */
   h1 {
     @apply font-normal text-foreground;
     font-family: var(--font-heading-primary);
     /* Base */
-    font-size: 2rem;
+    font-size: 3rem;
     line-height: 1.1;
     letter-spacing: -0.02em;
     /* SM */
     @apply sm:leading-[1.1];
     /* MD */
-    @apply md:leading-[0.9] md:tracking-tighter;
+    @apply md:leading-[0.9] md:tracking-tight;
     /* LG */
-    @apply lg:text-9xl lg:leading-[0.85] lg:tracking-tighter;
+    @apply lg:text-9xl lg:leading-[0.85] lg:tracking-tight;
     /* 2XL */
-    @apply 2xl:leading-[0.8] 2xl:tracking-tighter;
-    /* Refined letterform spacing */
-    font-feature-settings: "ss01" on;
+    @apply 2xl:leading-[0.8] 2xl:tracking-tight;
+
+    font-feature-settings: "pnum" on, "lnum" on;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
   
   @media (min-width: 768px) {
     h1 {
-      font-size: 4rem;
+      font-size: 5rem;
       letter-spacing: -0.03em;
     }
   }
   
   @media (min-width: 1024px) {
     h1 {
-      font-size: 6rem;
+      font-size: 7rem;
       letter-spacing: -0.03em;
     }
   }
   
   @media (min-width: 1536px) {
     h1 {
-      font-size: 8rem;
+      font-size: 9rem;
       letter-spacing: -0.04em;
     }
   }
@@ -190,18 +189,18 @@
     @apply font-normal text-foreground;
     font-family: var(--font-heading-primary);
     /* Base */
-    font-size: 1.875rem;
+    font-size: 2.5rem;
     line-height: 1.2;
     letter-spacing: -0.015em;
     /* Refined letterform spacing */
-    font-feature-settings: "ss01" on;
+    font-feature-settings: "pnum" on, "lnum" on;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
   
   @media (min-width: 768px) {
     h2 {
-      font-size: 2.25rem;
+      font-size: 3rem;
       line-height: 1.15;
       letter-spacing: -0.02em;
     }
@@ -209,7 +208,7 @@
   
   @media (min-width: 1024px) {
     h2 {
-      font-size: 3rem;
+      font-size: 4rem;
       line-height: 1.1;
       letter-spacing: -0.025em;
     }
@@ -217,30 +216,29 @@
   
   @media (min-width: 1536px) {
     h2 {
-      font-size: 4rem;
+      font-size: 5rem;
       line-height: 1.05;
       letter-spacing: -0.03em;
     }
   }
 
   /* ============================================================
-     SECONDARY HEADINGS (H3-H6) - Bodoni Moda
-     Sophisticated, elegant, warm serif for subsections
+     SECONDARY HEADINGS (H3-H6) - Instrument Serif
+     Consistent elegant serif
      ============================================================ */
   h3 {
-    @apply font-normal text-foreground;
-    font-family: var(--font-heading-secondary);
-    font-size: 1.5rem;
+    @apply font-normal text-foreground italic;
+    font-family: var(--font-heading-primary);
+    font-size: 1.75rem;
     line-height: 1.25;
     letter-spacing: -0.01em;
-    font-feature-settings: "ss01" on;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
   
   @media (min-width: 768px) {
     h3 {
-      font-size: 1.875rem;
+      font-size: 2rem;
       line-height: 1.2;
       letter-spacing: -0.015em;
     }
@@ -248,16 +246,16 @@
   
   @media (min-width: 1024px) {
     h3 {
-      font-size: 2.25rem;
+      font-size: 2.5rem;
       line-height: 1.15;
       letter-spacing: -0.02em;
     }
   }
 
   h4 {
-    @apply font-medium text-foreground;
-    font-family: var(--font-heading-secondary);
-    font-size: 1.25rem;
+    @apply font-normal text-foreground;
+    font-family: var(--font-heading-primary);
+    font-size: 1.5rem;
     line-height: 1.3;
     letter-spacing: 0;
     text-rendering: optimizeLegibility;
@@ -266,7 +264,7 @@
   
   @media (min-width: 768px) {
     h4 {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       line-height: 1.25;
       letter-spacing: -0.01em;
     }
@@ -274,15 +272,15 @@
   
   @media (min-width: 1024px) {
     h4 {
-      font-size: 1.875rem;
+      font-size: 2rem;
       line-height: 1.2;
       letter-spacing: -0.01em;
     }
   }
 
   h5 {
-    @apply font-medium text-foreground;
-    font-family: var(--font-heading-secondary);
+    @apply font-normal text-foreground;
+    font-family: var(--font-heading-primary);
     font-size: 1.25rem;
     line-height: 1.3;
     letter-spacing: 0;
@@ -297,8 +295,8 @@
   }
 
   h6 {
-    @apply font-medium text-foreground;
-    font-family: var(--font-heading-secondary);
+    @apply font-normal text-foreground;
+    font-family: var(--font-heading-primary);
     font-size: 1.125rem;
     line-height: 1.4;
     letter-spacing: 0;
@@ -306,8 +304,8 @@
   }
 
   /* ============================================================
-     BODY TEXT - Crimson Text
-     Humanist serif, optimized for readability and premium feel
+     BODY TEXT - Inter
+     Modern, clean, highly readable
      ============================================================ */
   p {
     @apply text-foreground;
@@ -317,7 +315,7 @@
     /* Premium typography settings */
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    font-feature-settings: "liga" on, "kern" on;
+    font-feature-settings: "cv05", "cv11", "ss01";
   }
   
   @media (min-width: 768px) {
@@ -338,7 +336,7 @@
      SEMANTIC TEXT ELEMENTS
      ============================================================ */
   
-  /* Subtitles and overlines - IBM Plex Mono for technical sophistication */
+  /* Subtitles and overlines - JetBrains Mono for technical sophistication */
   .subtitle-primary {
     @apply text-primary;
     font-family: var(--font-mono);
@@ -353,8 +351,8 @@
 
   .subtitle-secondary {
     @apply text-foreground italic;
-    font-family: var(--font-heading-secondary);
-    font-size: 1.125rem;
+    font-family: var(--font-heading-primary);
+    font-size: 1.25rem;
     line-height: 1.6;
     letter-spacing: 0.025em;
   }
@@ -395,7 +393,7 @@
   }
 
   /* ============================================================
-     CODE & TERMINAL TEXT - IBM Plex Mono
+     CODE & TERMINAL TEXT - JetBrains Mono
      Professional, refined monospace for technical content
      ============================================================ */
   code {
@@ -471,8 +469,8 @@
      ============================================================ */
   blockquote {
     @apply italic text-foreground border-l-4 border-primary pl-6 py-2 my-6;
-    font-family: var(--font-heading-secondary);
-    font-size: 1.125rem;
+    font-family: var(--font-heading-primary);
+    font-size: 1.25rem;
     letter-spacing: 0.01em;
   }
 
@@ -487,14 +485,14 @@
      TABLE TYPOGRAPHY
      ============================================================ */
   table {
-    @apply;
     font-family: var(--font-body);
     font-size: 1rem;
   }
 
   th {
     @apply font-medium text-foreground;
-    font-family: var(--font-heading-secondary);
+    font-family: var(--font-heading-primary);
+    font-size: 1.125rem;
   }
 
   td {

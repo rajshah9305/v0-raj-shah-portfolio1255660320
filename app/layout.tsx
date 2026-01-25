@@ -1,37 +1,29 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
-import { DM_Serif_Display, Bodoni_Moda, IBM_Plex_Mono, Crimson_Text } from 'next/font/google'
+import { Instrument_Serif, Inter, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { GlobalBackground } from '@/components/portfolio/global-background'
 import { cn } from "@/lib/utils";
 import './globals.css'
 
-// Premium Primary Heading Font - Bold, Modern Serif for H1-H2
-const dmSerifDisplay = DM_Serif_Display({
+// Primary Heading Font - Condensed, Elegant Serif for H1-H2
+const instrumentSerif = Instrument_Serif({
   weight: '400',
+  style: ['normal', 'italic'],
   subsets: ["latin"],
   variable: '--font-heading-primary'
 });
 
-// Sophisticated Secondary Heading Font - Elegant Serif for H3-H6
-const bodoniModa = Bodoni_Moda({
-  weight: ['400', '500', '600'],
-  subsets: ["latin"],
-  variable: '--font-heading-secondary'
-});
-
-// Refined Professional Mono - IBM Plex Mono for Code, UI, Labels
-const ibmPlexMono = IBM_Plex_Mono({
-  weight: ['400', '500', '600'],
-  subsets: ["latin"],
-  variable: '--font-mono'
-});
-
-// Humanist Serif for Body - Premium, Highly Readable
-const crimsonText = Crimson_Text({
-  weight: ['400', '600'],
+// Primary Body Font - Clean Sans-Serif
+const inter = Inter({
   subsets: ["latin"],
   variable: '--font-body'
+});
+
+// Monospace for Code & Technical Labels
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: '--font-mono'
 });
 
 export const metadata: Metadata = {
@@ -74,10 +66,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={cn(
-        dmSerifDisplay.variable,
-        bodoniModa.variable,
-        ibmPlexMono.variable,
-        crimsonText.variable,
+        instrumentSerif.variable,
+        inter.variable,
+        jetBrainsMono.variable,
         "antialiased bg-background text-foreground"
       )}>
         <GlobalBackground />
