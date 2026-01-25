@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { DM_Serif_Display, Bodoni_Moda, IBM_Plex_Mono, Crimson_Text } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { GlobalBackground } from '@/components/portfolio/global-background'
+import { cn } from "@/lib/utils";
 import './globals.css'
 
 // Premium Primary Heading Font - Bold, Modern Serif for H1-H2
@@ -72,7 +73,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${dmSerifDisplay.variable} ${bodoniModa.variable} ${ibmPlexMono.variable} ${crimsonText.variable} antialiased bg-background text-foreground`}>
+      <body className={cn(
+        dmSerifDisplay.variable,
+        bodoniModa.variable,
+        ibmPlexMono.variable,
+        crimsonText.variable,
+        "antialiased bg-background text-foreground"
+      )}>
         <GlobalBackground />
         {children}
         <Analytics />
