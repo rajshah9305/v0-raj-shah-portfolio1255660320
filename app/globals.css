@@ -49,9 +49,40 @@
 }
 
 @theme inline {
-  --font-serif: var(--font-serif);
+  --font-heading-primary: var(--font-heading-primary);
+  --font-heading-secondary: var(--font-heading-secondary);
+  --font-body: var(--font-body);
   --font-mono: var(--font-mono);
-  --font-sans: var(--font-sans);
+
+  /* Typography sizes */
+  --text-h1-sm: 2rem;
+  --text-h1-md: 4rem;
+  --text-h1-lg: 6rem;
+  --text-h1-xl: 8rem;
+  
+  --text-h2-sm: 1.875rem;
+  --text-h2-md: 2.25rem;
+  --text-h2-lg: 3rem;
+  --text-h2-xl: 4rem;
+  
+  --text-h3-sm: 1.5rem;
+  --text-h3-md: 1.875rem;
+  --text-h3-lg: 2.25rem;
+  
+  --text-h4-sm: 1.25rem;
+  --text-h4-md: 1.5rem;
+  --text-h4-lg: 1.875rem;
+  
+  --text-body-sm: 0.875rem;
+  --text-body-base: 1rem;
+  --text-body-lg: 1.125rem;
+  
+  --text-label-sm: 0.625rem;
+  --text-label-md: 0.75rem;
+  --text-label-lg: 0.875rem;
+  
+  --text-caption: 0.75rem;
+  --text-micro: 0.625rem;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -104,8 +135,9 @@
   }
 
   body {
-    @apply bg-background text-foreground text-body-base leading-relaxed;
+    @apply bg-background text-foreground leading-relaxed;
     font-family: var(--font-body);
+    font-size: 1rem;
   }
 
   /* ============================================================
@@ -115,28 +147,80 @@
   h1 {
     @apply font-normal text-foreground;
     font-family: var(--font-heading-primary);
-    /* Responsive scaling */
-    @apply text-h1-sm leading-[1.1] tracking-tighter sm:text-h1-sm sm:leading-[1.1]
-           md:text-h1-md md:leading-[0.9] md:tracking-tighter
-           lg:text-h1-lg lg:leading-[0.85] lg:tracking-tighter
-           2xl:text-h1-xl 2xl:leading-[0.8] 2xl:tracking-tighter;
+    /* Base */
+    font-size: 2rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    /* SM */
+    @apply sm:leading-[1.1];
+    /* MD */
+    @apply md:leading-[0.9] md:tracking-tighter;
+    /* LG */
+    @apply lg:text-9xl lg:leading-[0.85] lg:tracking-tighter;
+    /* 2XL */
+    @apply 2xl:leading-[0.8] 2xl:tracking-tighter;
     /* Refined letterform spacing */
     font-feature-settings: "ss01" on;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
+  
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 4rem;
+      letter-spacing: -0.03em;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 6rem;
+      letter-spacing: -0.03em;
+    }
+  }
+  
+  @media (min-width: 1536px) {
+    h1 {
+      font-size: 8rem;
+      letter-spacing: -0.04em;
+    }
+  }
 
   h2 {
     @apply font-normal text-foreground;
     font-family: var(--font-heading-primary);
-    /* Responsive scaling */
-    @apply text-h2-sm leading-[1.2] tracking-tight sm:text-h2-sm
-           md:text-h2-md md:leading-[1.15] md:tracking-tight
-           lg:text-h2-lg lg:leading-[1.1] lg:tracking-tight
-           2xl:text-h2-xl 2xl:leading-[1.05] 2xl:tracking-tighter;
+    /* Base */
+    font-size: 1.875rem;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    /* Refined letterform spacing */
     font-feature-settings: "ss01" on;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+  }
+  
+  @media (min-width: 768px) {
+    h2 {
+      font-size: 2.25rem;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    h2 {
+      font-size: 3rem;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+    }
+  }
+  
+  @media (min-width: 1536px) {
+    h2 {
+      font-size: 4rem;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
   }
 
   /* ============================================================
@@ -146,37 +230,78 @@
   h3 {
     @apply font-normal text-foreground;
     font-family: var(--font-heading-secondary);
-    /* Responsive scaling */
-    @apply text-h3-sm leading-[1.25] tracking-tight sm:text-h3-sm
-           md:text-h3-md md:leading-[1.2] md:tracking-tight
-           lg:text-h3-lg lg:leading-[1.15] lg:tracking-tight;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
     font-feature-settings: "ss01" on;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+  }
+  
+  @media (min-width: 768px) {
+    h3 {
+      font-size: 1.875rem;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    h3 {
+      font-size: 2.25rem;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
   }
 
   h4 {
     @apply font-medium text-foreground;
     font-family: var(--font-heading-secondary);
-    /* Responsive scaling */
-    @apply text-h4-sm leading-[1.3] tracking-normal sm:text-h4-sm
-           md:text-h4-md md:leading-[1.25] md:tracking-tight
-           lg:text-h4-lg lg:leading-[1.2] lg:tracking-tight;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    letter-spacing: 0;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+  }
+  
+  @media (min-width: 768px) {
+    h4 {
+      font-size: 1.5rem;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    h4 {
+      font-size: 1.875rem;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
   }
 
   h5 {
     @apply font-medium text-foreground;
     font-family: var(--font-heading-secondary);
-    @apply text-h4-sm leading-[1.3] tracking-normal md:text-h4-md md:leading-[1.25];
+    font-size: 1.25rem;
+    line-height: 1.3;
+    letter-spacing: 0;
     text-rendering: optimizeLegibility;
+  }
+  
+  @media (min-width: 768px) {
+    h5 {
+      font-size: 1.5rem;
+      line-height: 1.25;
+    }
   }
 
   h6 {
     @apply font-medium text-foreground;
     font-family: var(--font-heading-secondary);
-    @apply text-body-lg leading-[1.4] tracking-normal;
+    font-size: 1.125rem;
+    line-height: 1.4;
+    letter-spacing: 0;
     text-rendering: optimizeLegibility;
   }
 
@@ -187,14 +312,26 @@
   p {
     @apply text-foreground;
     font-family: var(--font-body);
-    /* Responsive scaling */
-    @apply text-body-sm leading-relaxed sm:text-body-sm sm:leading-relaxed
-           md:text-body-base md:leading-relaxed
-           lg:text-body-lg lg:leading-relaxed;
+    font-size: 0.875rem;
+    line-height: 1.6;
     /* Premium typography settings */
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     font-feature-settings: "liga" on, "kern" on;
+  }
+  
+  @media (min-width: 768px) {
+    p {
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    p {
+      font-size: 1.125rem;
+      line-height: 1.7;
+    }
   }
 
   /* ============================================================
@@ -203,8 +340,10 @@
   
   /* Subtitles and overlines - IBM Plex Mono for technical sophistication */
   .subtitle-primary {
-    @apply text-label-md uppercase text-primary;
+    @apply text-primary;
     font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.5;
     letter-spacing: 0.15em;
     font-weight: 500;
     text-transform: uppercase;
@@ -213,8 +352,9 @@
   }
 
   .subtitle-secondary {
-    @apply text-body-lg text-foreground italic;
+    @apply text-foreground italic;
     font-family: var(--font-heading-secondary);
+    font-size: 1.125rem;
     line-height: 1.6;
     letter-spacing: 0.025em;
   }
@@ -222,30 +362,35 @@
   /* Small text and descriptive copy */
   small,
   .text-small {
-    @apply text-body-sm text-foreground leading-relaxed;
+    @apply text-foreground leading-relaxed;
     font-family: var(--font-body);
+    font-size: 0.875rem;
   }
 
   /* Labels and UI text */
   .text-label {
-    @apply text-label-md uppercase text-primary;
+    @apply text-primary;
     font-family: var(--font-mono);
-    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.5;
     letter-spacing: 0.12em;
+    font-weight: 500;
     -webkit-font-smoothing: antialiased;
   }
 
   /* Captions and metadata */
   .text-caption {
-    @apply text-caption text-muted-foreground leading-relaxed;
+    @apply text-muted-foreground leading-relaxed;
     font-family: var(--font-body);
+    font-size: 0.75rem;
     letter-spacing: 0.02em;
   }
 
   /* Micro text for fine print */
   .text-micro {
-    @apply text-micro text-muted-foreground;
+    @apply text-muted-foreground;
     font-family: var(--font-body);
+    font-size: 0.625rem;
     letter-spacing: 0.05em;
   }
 
@@ -254,15 +399,17 @@
      Professional, refined monospace for technical content
      ============================================================ */
   code {
-    @apply text-body-sm text-foreground;
+    @apply text-foreground;
     font-family: var(--font-mono);
+    font-size: 0.875rem;
     font-weight: 400;
     font-feature-settings: "zero" on;
   }
 
   pre {
-    @apply text-caption text-foreground;
+    @apply text-foreground;
     font-family: var(--font-mono);
+    font-size: 0.75rem;
     font-weight: 400;
     line-height: 1.6;
     letter-spacing: 0.01em;
@@ -308,13 +455,15 @@
      ============================================================ */
   ul,
   ol {
-    @apply text-body-base leading-relaxed;
+    @apply leading-relaxed;
     font-family: var(--font-body);
+    font-size: 1rem;
   }
 
   li {
-    @apply text-body-base leading-relaxed mb-2;
+    @apply leading-relaxed mb-2;
     font-family: var(--font-body);
+    font-size: 1rem;
   }
 
   /* ============================================================
@@ -338,8 +487,9 @@
      TABLE TYPOGRAPHY
      ============================================================ */
   table {
-    @apply text-body-base;
+    @apply;
     font-family: var(--font-body);
+    font-size: 1rem;
   }
 
   th {
@@ -348,8 +498,9 @@
   }
 
   td {
-    @apply text-body-base text-foreground;
+    @apply text-foreground;
     font-family: var(--font-body);
+    font-size: 1rem;
   }
 }
 
