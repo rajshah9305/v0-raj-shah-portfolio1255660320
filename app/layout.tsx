@@ -1,11 +1,16 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
+import { Instrument_Serif, Inter, JetBrains_Mono } from 'next/font/google'
 import { Playfair_Display, Cormorant_Garamond, Source_Serif_4, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { GlobalBackground } from '@/components/portfolio/global-background'
 import { cn } from "@/lib/utils";
 import './globals.css'
 
+// Primary Heading Font - Condensed, Elegant Serif for H1-H2
+const instrumentSerif = Instrument_Serif({
+  weight: '400',
+  style: ['normal', 'italic'],
 // Dramatic Primary Heading Font - High-contrast serif with elegant presence
 const playfairDisplay = Playfair_Display({
   weight: ['400', '500', '600', '700', '800', '900'],
@@ -14,6 +19,14 @@ const playfairDisplay = Playfair_Display({
   display: 'swap',
 });
 
+// Primary Body Font - Clean Sans-Serif
+const inter = Inter({
+  subsets: ["latin"],
+  variable: '--font-body'
+});
+
+// Monospace for Code & Technical Labels
+const jetBrainsMono = JetBrains_Mono({
 // Refined Secondary Heading Font - Sophisticated serif with beautiful italics
 const cormorantGaramond = Cormorant_Garamond({
   weight: ['300', '400', '500', '600', '700'],
@@ -80,6 +93,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={cn(
+        instrumentSerif.variable,
+        inter.variable,
+        jetBrainsMono.variable,
         playfairDisplay.variable,
         cormorantGaramond.variable,
         sourceSerif4.variable,

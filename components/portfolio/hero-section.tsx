@@ -4,7 +4,7 @@ import { useEffect, useState, useRef, useCallback } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Globe } from "lucide-react";
 import { BOOT_SEQUENCE } from "@/lib/data";
-import { fadeInUp, scaleIn, defaultTransition } from "@/lib/animations";
+import { fadeInUp, scaleIn } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 
 export function HeroSection({
@@ -125,8 +125,8 @@ export function HeroSection({
           {/* Name with serif typography */}
           <motion.div variants={fadeInUp}>
             <h1 className="mb-8 md:mb-12">
-              <span className="block text-foreground">RAJ</span>
-              <span className="block text-primary">SHAH</span>
+              <span className="block text-foreground text-[12rem] leading-[0.8] tracking-tight font-normal">RAJ</span>
+              <span className="block text-primary text-[12rem] leading-[0.8] tracking-tight font-normal">SHAH</span>
             </h1>
           </motion.div>
 
@@ -196,6 +196,7 @@ export function HeroSection({
           ┌── RAJ_OS ──
         </div>
         <div className="hidden md:flex items-center gap-4 absolute top-8 right-8 text-foreground font-mono text-xs tracking-normal">
+          <Globe className="w-4 h-4" />
           <span> ── v2026 ──┐</span>
         </div>
         <div className="hidden md:block absolute bottom-8 left-8 text-foreground font-mono text-xs tracking-normal">
