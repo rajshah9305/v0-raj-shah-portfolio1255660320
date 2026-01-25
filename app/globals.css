@@ -138,126 +138,129 @@
     @apply bg-background text-foreground leading-relaxed;
     font-family: var(--font-body);
     font-size: 1rem;
+    font-weight: 400;
   }
 
   /* ============================================================
-     PRIMARY HEADINGS (H1-H2) - DM Serif Display
-     Premium, bold, commanding presence
+     PRIMARY HEADINGS (H1-H2) - Playfair Display
+     Dramatic, high-contrast serif with commanding presence
      ============================================================ */
   h1 {
-    @apply font-normal text-foreground;
+    @apply text-foreground;
     font-family: var(--font-heading-primary);
-    /* Base */
-    font-size: 2rem;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    /* SM */
-    @apply sm:leading-[1.1];
-    /* MD */
-    @apply md:leading-[0.9] md:tracking-tighter;
-    /* LG */
-    @apply lg:text-9xl lg:leading-[0.85] lg:tracking-tighter;
-    /* 2XL */
-    @apply 2xl:leading-[0.8] 2xl:tracking-tighter;
-    /* Refined letterform spacing */
-    font-feature-settings: "ss01" on;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    font-feature-settings: "liga" on, "kern" on;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
   
+  @media (min-width: 640px) {
+    h1 {
+      font-size: 3.5rem;
+      letter-spacing: -0.03em;
+    }
+  }
+  
   @media (min-width: 768px) {
     h1 {
-      font-size: 4rem;
-      letter-spacing: -0.03em;
+      font-size: 5rem;
+      line-height: 1;
+      letter-spacing: -0.035em;
     }
   }
   
   @media (min-width: 1024px) {
     h1 {
-      font-size: 6rem;
-      letter-spacing: -0.03em;
+      font-size: 6.5rem;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
     }
   }
   
   @media (min-width: 1536px) {
     h1 {
-      font-size: 8rem;
-      letter-spacing: -0.04em;
+      font-size: 8.5rem;
+      line-height: 0.9;
+      letter-spacing: -0.045em;
     }
   }
 
   h2 {
-    @apply font-normal text-foreground;
+    @apply text-foreground;
     font-family: var(--font-heading-primary);
-    /* Base */
-    font-size: 1.875rem;
-    line-height: 1.2;
-    letter-spacing: -0.015em;
-    /* Refined letterform spacing */
-    font-feature-settings: "ss01" on;
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-feature-settings: "liga" on, "kern" on;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
   
   @media (min-width: 768px) {
     h2 {
-      font-size: 2.25rem;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    h2 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       line-height: 1.1;
       letter-spacing: -0.025em;
     }
   }
   
-  @media (min-width: 1536px) {
+  @media (min-width: 1024px) {
     h2 {
-      font-size: 4rem;
+      font-size: 3.25rem;
       line-height: 1.05;
       letter-spacing: -0.03em;
     }
   }
+  
+  @media (min-width: 1536px) {
+    h2 {
+      font-size: 4.5rem;
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+  }
 
   /* ============================================================
-     SECONDARY HEADINGS (H3-H6) - Bodoni Moda
-     Sophisticated, elegant, warm serif for subsections
+     SECONDARY HEADINGS (H3-H6) - Cormorant Garamond
+     Refined, sophisticated serif with elegant proportions
      ============================================================ */
   h3 {
-    @apply font-normal text-foreground;
+    @apply text-foreground;
     font-family: var(--font-heading-secondary);
-    font-size: 1.5rem;
+    font-weight: 500;
+    font-size: 1.625rem;
     line-height: 1.25;
-    letter-spacing: -0.01em;
-    font-feature-settings: "ss01" on;
+    letter-spacing: 0;
+    font-feature-settings: "liga" on, "kern" on;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
   
   @media (min-width: 768px) {
     h3 {
-      font-size: 1.875rem;
+      font-size: 2rem;
       line-height: 1.2;
-      letter-spacing: -0.015em;
+      letter-spacing: -0.01em;
     }
   }
   
   @media (min-width: 1024px) {
     h3 {
-      font-size: 2.25rem;
+      font-size: 2.5rem;
       line-height: 1.15;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.015em;
     }
   }
 
   h4 {
-    @apply font-medium text-foreground;
+    @apply text-foreground;
     font-family: var(--font-heading-secondary);
-    font-size: 1.25rem;
+    font-weight: 600;
+    font-size: 1.375rem;
     line-height: 1.3;
     letter-spacing: 0;
     text-rendering: optimizeLegibility;
@@ -266,71 +269,72 @@
   
   @media (min-width: 768px) {
     h4 {
-      font-size: 1.5rem;
+      font-size: 1.625rem;
       line-height: 1.25;
-      letter-spacing: -0.01em;
     }
   }
   
   @media (min-width: 1024px) {
     h4 {
-      font-size: 1.875rem;
+      font-size: 2rem;
       line-height: 1.2;
-      letter-spacing: -0.01em;
     }
   }
 
   h5 {
-    @apply font-medium text-foreground;
+    @apply text-foreground;
     font-family: var(--font-heading-secondary);
+    font-weight: 600;
     font-size: 1.25rem;
-    line-height: 1.3;
-    letter-spacing: 0;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
     text-rendering: optimizeLegibility;
   }
   
   @media (min-width: 768px) {
     h5 {
       font-size: 1.5rem;
-      line-height: 1.25;
+      line-height: 1.3;
     }
   }
 
   h6 {
-    @apply font-medium text-foreground;
+    @apply text-foreground;
     font-family: var(--font-heading-secondary);
+    font-weight: 600;
     font-size: 1.125rem;
     line-height: 1.4;
-    letter-spacing: 0;
+    letter-spacing: 0.015em;
     text-rendering: optimizeLegibility;
   }
 
   /* ============================================================
-     BODY TEXT - Crimson Text
-     Humanist serif, optimized for readability and premium feel
+     BODY TEXT - Source Serif 4
+     Modern editorial serif with excellent screen readability
      ============================================================ */
   p {
     @apply text-foreground;
     font-family: var(--font-body);
-    font-size: 0.875rem;
-    line-height: 1.6;
-    /* Premium typography settings */
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.7;
+    letter-spacing: 0.005em;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    font-feature-settings: "liga" on, "kern" on;
+    font-feature-settings: "liga" on, "kern" on, "onum" on;
   }
   
   @media (min-width: 768px) {
     p {
-      font-size: 1rem;
-      line-height: 1.65;
+      font-size: 1.0625rem;
+      line-height: 1.75;
     }
   }
   
   @media (min-width: 1024px) {
     p {
       font-size: 1.125rem;
-      line-height: 1.7;
+      line-height: 1.8;
     }
   }
 
@@ -338,13 +342,13 @@
      SEMANTIC TEXT ELEMENTS
      ============================================================ */
   
-  /* Subtitles and overlines - IBM Plex Mono for technical sophistication */
+  /* Subtitles and overlines - JetBrains Mono for technical sophistication */
   .subtitle-primary {
     @apply text-primary;
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     line-height: 1.5;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.2em;
     font-weight: 500;
     text-transform: uppercase;
     display: block;
@@ -352,11 +356,13 @@
   }
 
   .subtitle-secondary {
-    @apply text-foreground italic;
+    @apply text-foreground;
     font-family: var(--font-heading-secondary);
-    font-size: 1.125rem;
-    line-height: 1.6;
-    letter-spacing: 0.025em;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
   }
 
   /* Small text and descriptive copy */
@@ -364,16 +370,17 @@
   .text-small {
     @apply text-foreground leading-relaxed;
     font-family: var(--font-body);
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
+    font-weight: 400;
   }
 
-  /* Labels and UI text */
+  /* Labels and UI text - JetBrains Mono */
   .text-label {
     @apply text-primary;
     font-family: var(--font-mono);
     font-size: 0.75rem;
     line-height: 1.5;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.15em;
     font-weight: 500;
     -webkit-font-smoothing: antialiased;
   }
@@ -382,43 +389,46 @@
   .text-caption {
     @apply text-muted-foreground leading-relaxed;
     font-family: var(--font-body);
-    font-size: 0.75rem;
-    letter-spacing: 0.02em;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
   }
 
   /* Micro text for fine print */
   .text-micro {
     @apply text-muted-foreground;
-    font-family: var(--font-body);
-    font-size: 0.625rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
     letter-spacing: 0.05em;
+    font-weight: 400;
   }
 
   /* ============================================================
-     CODE & TERMINAL TEXT - IBM Plex Mono
-     Professional, refined monospace for technical content
+     CODE & TERMINAL TEXT - JetBrains Mono
+     Developer-focused monospace with ligatures
      ============================================================ */
   code {
     @apply text-foreground;
     font-family: var(--font-mono);
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     font-weight: 400;
-    font-feature-settings: "zero" on;
+    font-feature-settings: "liga" on, "calt" on, "zero" on;
   }
 
   pre {
     @apply text-foreground;
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: 0.01em;
-    font-feature-settings: "zero" on;
+    line-height: 1.65;
+    letter-spacing: 0;
+    font-feature-settings: "liga" on, "calt" on, "zero" on;
     text-rendering: optimizeLegibility;
   }
 
   code.inline {
-    @apply bg-secondary/30 px-1.5 py-0.5 rounded text-body-sm;
+    @apply bg-secondary/30 px-1.5 py-0.5 rounded;
+    font-size: 0.875rem;
   }
 
   /* ============================================================
@@ -438,7 +448,7 @@
      ============================================================ */
   strong,
   b {
-    @apply font-semibold;
+    font-weight: 600;
   }
 
   em,
@@ -457,22 +467,27 @@
   ol {
     @apply leading-relaxed;
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 1.0625rem;
+    font-weight: 400;
   }
 
   li {
     @apply leading-relaxed mb-2;
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 1.0625rem;
+    font-weight: 400;
   }
 
   /* ============================================================
      BLOCKQUOTE STYLING
      ============================================================ */
   blockquote {
-    @apply italic text-foreground border-l-4 border-primary pl-6 py-2 my-6;
+    @apply text-foreground border-l-4 border-primary pl-6 py-2 my-6;
     font-family: var(--font-heading-secondary);
-    font-size: 1.125rem;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.6;
     letter-spacing: 0.01em;
   }
 
@@ -489,17 +504,73 @@
   table {
     font-family: var(--font-body);
     font-size: 1rem;
+    font-weight: 400;
   }
 
   th {
-    @apply font-medium text-foreground;
+    @apply text-foreground;
     font-family: var(--font-heading-secondary);
+    font-weight: 600;
   }
 
   td {
     @apply text-foreground;
     font-family: var(--font-body);
     font-size: 1rem;
+    font-weight: 400;
+  }
+
+  /* ============================================================
+     DISPLAY TEXT UTILITIES
+     ============================================================ */
+  .display-xl {
+    font-family: var(--font-heading-primary);
+    font-weight: 800;
+    font-size: 4rem;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+  
+  @media (min-width: 768px) {
+    .display-xl {
+      font-size: 6rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .display-xl {
+      font-size: 8rem;
+    }
+  }
+
+  .display-lg {
+    font-family: var(--font-heading-primary);
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+  
+  @media (min-width: 768px) {
+    .display-lg {
+      font-size: 4.5rem;
+    }
+  }
+
+  /* Elegant italic accent text */
+  .text-elegant {
+    font-family: var(--font-heading-secondary);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  /* Technical/code accent text */
+  .text-technical {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
 }
 
