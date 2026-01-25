@@ -104,7 +104,8 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body text-body-base leading-relaxed;
+    @apply bg-background text-foreground text-body-base leading-relaxed;
+    font-family: var(--font-body);
   }
 
   /* ============================================================
@@ -112,7 +113,8 @@
      Premium, bold, commanding presence
      ============================================================ */
   h1 {
-    @apply font-heading-primary font-normal text-foreground;
+    @apply font-normal text-foreground;
+    font-family: var(--font-heading-primary);
     /* Responsive scaling */
     @apply text-h1-sm leading-[1.1] tracking-tighter sm:text-h1-sm sm:leading-[1.1]
            md:text-h1-md md:leading-[0.9] md:tracking-tighter
@@ -125,7 +127,8 @@
   }
 
   h2 {
-    @apply font-heading-primary font-normal text-foreground;
+    @apply font-normal text-foreground;
+    font-family: var(--font-heading-primary);
     /* Responsive scaling */
     @apply text-h2-sm leading-[1.2] tracking-tight sm:text-h2-sm
            md:text-h2-md md:leading-[1.15] md:tracking-tight
@@ -141,7 +144,8 @@
      Sophisticated, elegant, warm serif for subsections
      ============================================================ */
   h3 {
-    @apply font-heading-secondary font-normal text-foreground;
+    @apply font-normal text-foreground;
+    font-family: var(--font-heading-secondary);
     /* Responsive scaling */
     @apply text-h3-sm leading-[1.25] tracking-tight sm:text-h3-sm
            md:text-h3-md md:leading-[1.2] md:tracking-tight
@@ -152,7 +156,8 @@
   }
 
   h4 {
-    @apply font-heading-secondary font-medium text-foreground;
+    @apply font-medium text-foreground;
+    font-family: var(--font-heading-secondary);
     /* Responsive scaling */
     @apply text-h4-sm leading-[1.3] tracking-normal sm:text-h4-sm
            md:text-h4-md md:leading-[1.25] md:tracking-tight
@@ -162,13 +167,15 @@
   }
 
   h5 {
-    @apply font-heading-secondary font-medium text-foreground;
+    @apply font-medium text-foreground;
+    font-family: var(--font-heading-secondary);
     @apply text-h4-sm leading-[1.3] tracking-normal md:text-h4-md md:leading-[1.25];
     text-rendering: optimizeLegibility;
   }
 
   h6 {
-    @apply font-heading-secondary font-medium text-foreground;
+    @apply font-medium text-foreground;
+    font-family: var(--font-heading-secondary);
     @apply text-body-lg leading-[1.4] tracking-normal;
     text-rendering: optimizeLegibility;
   }
@@ -178,7 +185,8 @@
      Humanist serif, optimized for readability and premium feel
      ============================================================ */
   p {
-    @apply font-body text-foreground;
+    @apply text-foreground;
+    font-family: var(--font-body);
     /* Responsive scaling */
     @apply text-body-sm leading-relaxed sm:text-body-sm sm:leading-relaxed
            md:text-body-base md:leading-relaxed
@@ -195,7 +203,8 @@
   
   /* Subtitles and overlines - IBM Plex Mono for technical sophistication */
   .subtitle-primary {
-    @apply font-mono text-label-md uppercase text-primary;
+    @apply text-label-md uppercase text-primary;
+    font-family: var(--font-mono);
     letter-spacing: 0.15em;
     font-weight: 500;
     text-transform: uppercase;
@@ -204,7 +213,8 @@
   }
 
   .subtitle-secondary {
-    @apply font-heading-secondary text-body-lg text-foreground italic;
+    @apply text-body-lg text-foreground italic;
+    font-family: var(--font-heading-secondary);
     line-height: 1.6;
     letter-spacing: 0.025em;
   }
@@ -212,12 +222,14 @@
   /* Small text and descriptive copy */
   small,
   .text-small {
-    @apply font-body text-body-sm text-foreground leading-relaxed;
+    @apply text-body-sm text-foreground leading-relaxed;
+    font-family: var(--font-body);
   }
 
   /* Labels and UI text */
   .text-label {
-    @apply font-mono text-label-md uppercase text-primary;
+    @apply text-label-md uppercase text-primary;
+    font-family: var(--font-mono);
     font-weight: 500;
     letter-spacing: 0.12em;
     -webkit-font-smoothing: antialiased;
@@ -225,13 +237,15 @@
 
   /* Captions and metadata */
   .text-caption {
-    @apply font-body text-caption text-muted-foreground leading-relaxed;
+    @apply text-caption text-muted-foreground leading-relaxed;
+    font-family: var(--font-body);
     letter-spacing: 0.02em;
   }
 
   /* Micro text for fine print */
   .text-micro {
-    @apply font-body text-micro text-muted-foreground;
+    @apply text-micro text-muted-foreground;
+    font-family: var(--font-body);
     letter-spacing: 0.05em;
   }
 
@@ -240,13 +254,15 @@
      Professional, refined monospace for technical content
      ============================================================ */
   code {
-    @apply font-mono text-body-sm text-foreground;
+    @apply text-body-sm text-foreground;
+    font-family: var(--font-mono);
     font-weight: 400;
     font-feature-settings: "zero" on;
   }
 
   pre {
-    @apply font-mono text-caption text-foreground;
+    @apply text-caption text-foreground;
+    font-family: var(--font-mono);
     font-weight: 400;
     line-height: 1.6;
     letter-spacing: 0.01em;
@@ -292,18 +308,21 @@
      ============================================================ */
   ul,
   ol {
-    @apply font-body text-body-base leading-relaxed;
+    @apply text-body-base leading-relaxed;
+    font-family: var(--font-body);
   }
 
   li {
-    @apply font-body text-body-base leading-relaxed mb-2;
+    @apply text-body-base leading-relaxed mb-2;
+    font-family: var(--font-body);
   }
 
   /* ============================================================
      BLOCKQUOTE STYLING
      ============================================================ */
   blockquote {
-    @apply font-heading-secondary italic text-foreground border-l-4 border-primary pl-6 py-2 my-6;
+    @apply italic text-foreground border-l-4 border-primary pl-6 py-2 my-6;
+    font-family: var(--font-heading-secondary);
     font-size: 1.125rem;
     letter-spacing: 0.01em;
   }
@@ -319,15 +338,18 @@
      TABLE TYPOGRAPHY
      ============================================================ */
   table {
-    @apply font-body text-body-base;
+    @apply text-body-base;
+    font-family: var(--font-body);
   }
 
   th {
-    @apply font-heading-secondary font-medium text-foreground;
+    @apply font-medium text-foreground;
+    font-family: var(--font-heading-secondary);
   }
 
   td {
-    @apply font-body text-body-base text-foreground;
+    @apply text-body-base text-foreground;
+    font-family: var(--font-body);
   }
 }
 
