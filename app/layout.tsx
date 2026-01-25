@@ -1,24 +1,36 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
-import { Instrument_Serif, JetBrains_Mono, Inter } from 'next/font/google'
+import { DM_Serif_Display, Bodoni_Moda, IBM_Plex_Mono, Crimson_Text } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { GlobalBackground } from '@/components/portfolio/global-background'
 import './globals.css'
 
-const instrumentSerif = Instrument_Serif({
+// Premium Primary Heading Font - Bold, Modern Serif for H1-H2
+const dmSerifDisplay = DM_Serif_Display({
   weight: '400',
   subsets: ["latin"],
-  variable: '--font-serif'
+  variable: '--font-heading-primary'
 });
 
-const jetbrainsMono = JetBrains_Mono({
+// Sophisticated Secondary Heading Font - Elegant Serif for H3-H6
+const bodoniModa = Bodoni_Moda({
+  weight: ['400', '500', '600'],
+  subsets: ["latin"],
+  variable: '--font-heading-secondary'
+});
+
+// Refined Professional Mono - IBM Plex Mono for Code, UI, Labels
+const ibmPlexMono = IBM_Plex_Mono({
+  weight: ['400', '500', '600'],
   subsets: ["latin"],
   variable: '--font-mono'
 });
 
-const inter = Inter({
+// Humanist Serif for Body - Premium, Highly Readable
+const crimsonText = Crimson_Text({
+  weight: ['400', '600'],
   subsets: ["latin"],
-  variable: '--font-sans'
+  variable: '--font-body'
 });
 
 export const metadata: Metadata = {
@@ -60,7 +72,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${instrumentSerif.variable} ${jetbrainsMono.variable} ${inter.variable} font-sans antialiased bg-background text-foreground`}>
+      <body className={`${dmSerifDisplay.variable} ${bodoniModa.variable} ${ibmPlexMono.variable} ${crimsonText.variable} antialiased bg-background text-foreground`}>
         <GlobalBackground />
         {children}
         <Analytics />

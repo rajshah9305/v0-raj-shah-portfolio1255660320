@@ -104,79 +104,230 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans tracking-normal text-base leading-relaxed;
+    @apply bg-background text-foreground font-body text-body-base leading-relaxed;
   }
 
-  /* Typography Scale - Headings */
+  /* ============================================================
+     PRIMARY HEADINGS (H1-H2) - DM Serif Display
+     Premium, bold, commanding presence
+     ============================================================ */
   h1 {
-    @apply text-7xl md:text-9xl lg:text-[12rem] font-serif font-normal tracking-tighter leading-[0.8] text-foreground;
+    @apply font-heading-primary font-normal text-foreground;
+    /* Responsive scaling */
+    @apply text-h1-sm leading-[1.1] tracking-tighter sm:text-h1-sm sm:leading-[1.1]
+           md:text-h1-md md:leading-[0.9] md:tracking-tighter
+           lg:text-h1-lg lg:leading-[0.85] lg:tracking-tighter
+           2xl:text-h1-xl 2xl:leading-[0.8] 2xl:tracking-tighter;
+    /* Refined letterform spacing */
+    font-feature-settings: "ss01" on;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
 
   h2 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-serif font-normal tracking-tight leading-tight text-foreground;
+    @apply font-heading-primary font-normal text-foreground;
+    /* Responsive scaling */
+    @apply text-h2-sm leading-[1.2] tracking-tight sm:text-h2-sm
+           md:text-h2-md md:leading-[1.15] md:tracking-tight
+           lg:text-h2-lg lg:leading-[1.1] lg:tracking-tight
+           2xl:text-h2-xl 2xl:leading-[1.05] 2xl:tracking-tighter;
+    font-feature-settings: "ss01" on;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
 
+  /* ============================================================
+     SECONDARY HEADINGS (H3-H6) - Bodoni Moda
+     Sophisticated, elegant, warm serif for subsections
+     ============================================================ */
   h3 {
-    @apply text-3xl md:text-4xl font-serif font-normal tracking-tight leading-snug text-foreground;
+    @apply font-heading-secondary font-normal text-foreground;
+    /* Responsive scaling */
+    @apply text-h3-sm leading-[1.25] tracking-tight sm:text-h3-sm
+           md:text-h3-md md:leading-[1.2] md:tracking-tight
+           lg:text-h3-lg lg:leading-[1.15] lg:tracking-tight;
+    font-feature-settings: "ss01" on;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
 
   h4 {
-    @apply text-2xl md:text-3xl font-serif font-normal tracking-tight leading-snug text-foreground;
+    @apply font-heading-secondary font-medium text-foreground;
+    /* Responsive scaling */
+    @apply text-h4-sm leading-[1.3] tracking-normal sm:text-h4-sm
+           md:text-h4-md md:leading-[1.25] md:tracking-tight
+           lg:text-h4-lg lg:leading-[1.2] lg:tracking-tight;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
 
   h5 {
-    @apply text-xl md:text-2xl font-serif font-normal tracking-normal leading-normal text-foreground;
+    @apply font-heading-secondary font-medium text-foreground;
+    @apply text-h4-sm leading-[1.3] tracking-normal md:text-h4-md md:leading-[1.25];
+    text-rendering: optimizeLegibility;
   }
 
   h6 {
-    @apply text-lg font-serif font-normal tracking-normal leading-normal text-foreground;
+    @apply font-heading-secondary font-medium text-foreground;
+    @apply text-body-lg leading-[1.4] tracking-normal;
+    text-rendering: optimizeLegibility;
   }
 
-  /* Paragraph text */
+  /* ============================================================
+     BODY TEXT - Crimson Text
+     Humanist serif, optimized for readability and premium feel
+     ============================================================ */
   p {
-    @apply text-base md:text-lg font-sans text-foreground tracking-normal leading-relaxed;
+    @apply font-body text-foreground;
+    /* Responsive scaling */
+    @apply text-body-sm leading-relaxed sm:text-body-sm sm:leading-relaxed
+           md:text-body-base md:leading-relaxed
+           lg:text-body-lg lg:leading-relaxed;
+    /* Premium typography settings */
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "liga" on, "kern" on;
   }
 
-  /* Subtitles and secondary headings */
+  /* ============================================================
+     SEMANTIC TEXT ELEMENTS
+     ============================================================ */
+  
+  /* Subtitles and overlines - IBM Plex Mono for technical sophistication */
   .subtitle-primary {
-    @apply text-sm md:text-base font-mono tracking-widest uppercase text-primary mb-2;
+    @apply font-mono text-label-md uppercase text-primary;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 1rem;
   }
 
   .subtitle-secondary {
-    @apply text-lg md:text-xl font-serif italic tracking-wide leading-relaxed text-foreground;
+    @apply font-heading-secondary text-body-lg text-foreground italic;
+    line-height: 1.6;
+    letter-spacing: 0.025em;
   }
 
-  /* Small text and labels */
+  /* Small text and descriptive copy */
   small,
   .text-small {
-    @apply text-sm md:text-base font-sans tracking-normal leading-relaxed text-foreground;
+    @apply font-body text-body-sm text-foreground leading-relaxed;
   }
 
+  /* Labels and UI text */
   .text-label {
-    @apply text-xs md:text-sm font-mono tracking-[0.2em] uppercase text-primary;
+    @apply font-mono text-label-md uppercase text-primary;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    -webkit-font-smoothing: antialiased;
   }
 
+  /* Captions and metadata */
   .text-caption {
-    @apply text-xs font-sans tracking-normal leading-relaxed text-muted-foreground;
+    @apply font-body text-caption text-muted-foreground leading-relaxed;
+    letter-spacing: 0.02em;
   }
 
-  /* Code and terminal text */
-  code,
-  pre {
-    @apply font-mono tracking-normal;
+  /* Micro text for fine print */
+  .text-micro {
+    @apply font-body text-micro text-muted-foreground;
+    letter-spacing: 0.05em;
   }
 
+  /* ============================================================
+     CODE & TERMINAL TEXT - IBM Plex Mono
+     Professional, refined monospace for technical content
+     ============================================================ */
   code {
-    @apply text-sm md:text-base;
+    @apply font-mono text-body-sm text-foreground;
+    font-weight: 400;
+    font-feature-settings: "zero" on;
   }
 
   pre {
-    @apply text-xs md:text-sm;
+    @apply font-mono text-caption text-foreground;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    font-feature-settings: "zero" on;
+    text-rendering: optimizeLegibility;
   }
 
-  /* Links */
+  code.inline {
+    @apply bg-secondary/30 px-1.5 py-0.5 rounded text-body-sm;
+  }
+
+  /* ============================================================
+     LINKS - Refined hover states
+     ============================================================ */
   a {
     @apply transition-colors duration-300 hover:text-primary;
+    text-decoration: none;
+  }
+
+  a:hover {
+    @apply text-primary;
+  }
+
+  /* ============================================================
+     EMPHASIS ELEMENTS
+     ============================================================ */
+  strong,
+  b {
+    @apply font-semibold;
+  }
+
+  em,
+  i {
+    font-style: italic;
+  }
+
+  mark {
+    @apply bg-primary/20 text-foreground px-1 rounded;
+  }
+
+  /* ============================================================
+     LIST STYLING
+     ============================================================ */
+  ul,
+  ol {
+    @apply font-body text-body-base leading-relaxed;
+  }
+
+  li {
+    @apply font-body text-body-base leading-relaxed mb-2;
+  }
+
+  /* ============================================================
+     BLOCKQUOTE STYLING
+     ============================================================ */
+  blockquote {
+    @apply font-heading-secondary italic text-foreground border-l-4 border-primary pl-6 py-2 my-6;
+    font-size: 1.125rem;
+    letter-spacing: 0.01em;
+  }
+
+  /* ============================================================
+     HORIZONTAL RULES
+     ============================================================ */
+  hr {
+    @apply border-border my-8 md:my-12;
+  }
+
+  /* ============================================================
+     TABLE TYPOGRAPHY
+     ============================================================ */
+  table {
+    @apply font-body text-body-base;
+  }
+
+  th {
+    @apply font-heading-secondary font-medium text-foreground;
+  }
+
+  td {
+    @apply font-body text-body-base text-foreground;
   }
 }
 
