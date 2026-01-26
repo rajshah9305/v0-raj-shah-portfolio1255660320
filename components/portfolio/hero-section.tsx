@@ -132,7 +132,7 @@ export function HeroSection({
           {/* Tagline */}
           <motion.p
             variants={fadeInUp}
-            className="font-mono text-[0.8125rem] leading-relaxed tracking-[0.2em] font-medium uppercase text-black bg-primary px-4 py-2 rounded-md w-fit mx-auto text-pretty mb-8 md:mb-10"
+            className="font-mono text-[0.8125rem] leading-relaxed tracking-[0.2em] font-medium uppercase text-foreground w-fit mx-auto text-pretty mb-8 md:mb-10"
           >
             {"\"Transforming ideas into intelligent systems, one line of code at a time.\""}
           </motion.p>
