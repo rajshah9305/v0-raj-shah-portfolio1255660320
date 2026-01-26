@@ -115,7 +115,7 @@ export function HeroSection({
         >
           {/* Chapter indicator */}
           <motion.p
-            className="text-label mb-6 md:mb-8"
+            className="font-mono text-xs leading-normal tracking-[0.15em] font-medium text-white mb-6 md:mb-8"
             variants={fadeInUp}
           >
             Chapter I — The Beginning
