@@ -7,11 +7,11 @@ export function GlobalBackground() {
     <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none select-none bg-background">
       {/* Global Grid Pattern (Subtle Engineering Feel) */}
       <div
-        className="absolute inset-0 z-0 opacity-[0.15]"
+        className="absolute inset-0 z-0 opacity-[0.2]"
         style={{
           backgroundImage: `
-            linear-gradient(to right, #333 1px, transparent 1px),
-            linear-gradient(to bottom, #333 1px, transparent 1px)
+            linear-gradient(to right, #444 1px, transparent 1px),
+            linear-gradient(to bottom, #444 1px, transparent 1px)
           `,
           backgroundSize: '4rem 4rem',
           maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)'
