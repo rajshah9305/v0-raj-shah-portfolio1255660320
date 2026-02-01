@@ -29,7 +29,7 @@ export function JourneyTimeline() {
   return (
     <div ref={containerRef} className="relative max-w-3xl mx-auto px-4">
       {/* Central line */}
-      <div className="absolute left-[1.35rem] md:left-1/2 top-0 bottom-0 w-px bg-border">
+      <div className="absolute left-[1.375rem] md:left-1/2 top-0 bottom-0 w-px bg-border">
         <motion.div
           className="w-full bg-primary"
           style={{ height: lineHeight }}
