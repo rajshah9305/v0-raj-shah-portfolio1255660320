@@ -81,6 +81,12 @@ export const PROJECTS: Project[] = [
     tech: ["TypeScript", "Math Logic", "Web App"],
     githubUrl: "https://github.com/rajshah9305/Calculator",
   },
+  {
+    title: "Neural Code Synthesis",
+    description: "Experimental LLM usage to generate executable code from natural language prompts, bridging the gap between intent and implementation.",
+    tech: ["Python", "LLMs", "Transformers"],
+    githubUrl: "https://github.com/rajshah9305",
+  },
 ];
 
 export const SKILL_CATEGORIES: Skill[] = [
@@ -159,6 +165,10 @@ export const PHILOSOPHY: PhilosophyItem[] = [
   {
     title: "Performance as Function",
     description: "Speed is not just a metric; it's a feature. Efficient code respects the user's time and resources, creating a seamless and immersive digital experience.",
+  },
+  {
+    title: "Continuous Evolution",
+    description: "Technology never stands still, and neither do I. I embrace the cycle of learning, building, breaking, and rebuilding to stay at the cutting edge.",
   },
 ];
 

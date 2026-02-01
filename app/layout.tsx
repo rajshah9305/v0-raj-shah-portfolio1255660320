@@ -74,6 +74,8 @@ export default function RootLayout({
         jetBrainsMono.variable,
         "antialiased bg-background text-foreground"
       )}>
+        {/* Global Noise Overlay */}
+        <div className="noise" />
         <GlobalBackground />
         {children}
         <Analytics />
